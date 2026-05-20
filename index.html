@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Voxaro — KI Werkstatt Assistent</title>
+  <meta name="description" content="Kein Anruf geht verloren. Samir arbeitet 24/7. Der KI-Telefon-Agent für Kfz-Werkstätten." />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: '#FF6B00',
+          },
+          fontFamily: {
+            sans: ['-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'sans-serif'],
+          },
+        },
+      },
+    }
+  </script>
+  <style>
+    body { background: #09090b; }
+    @keyframes pulse-slow { 0%,100%{opacity:1} 50%{opacity:.6} }
+    .pulse-slow { animation: pulse-slow 2.5s ease-in-out infinite; }
+  </style>
+</head>
+<body class="text-zinc-100 font-sans antialiased">
+
+  <!-- Navbar -->
+  <nav class="sticky top-0 z-20 bg-zinc-900/90 backdrop-blur border-b border-zinc-800">
+    <div class="max-w-5xl mx-auto px-4 h-14 flex items-center justify-between">
+      <!-- Logo -->
+      <div class="flex items-center gap-2">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
+          <path d="M13 2L4.5 13.5H11L9 22L19.5 10H13L13 2Z" fill="#FF6B00"/>
+        </svg>
+        <span class="text-lg font-black tracking-wider leading-none">
+          <span style="color:#FF6B00">VOX</span><span class="text-white">ARO</span>
+        </span>
+      </div>
+      <a href="https://voxaro.vercel.app/login"
+         class="text-sm font-medium border border-orange-500/50 text-orange-400 hover:border-orange-400 hover:text-orange-300 px-4 py-1.5 rounded-lg transition-colors">
+        Anmelden
+      </a>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <section class="max-w-5xl mx-auto px-4 pt-24 pb-20 text-center">
+    <span class="inline-flex items-center gap-1.5 text-xs font-semibold bg-orange-500/10 border border-orange-500/20 text-orange-400 px-3 py-1 rounded-full mb-6">
+      <svg width="11" height="11" viewBox="0 0 24 24" fill="currentColor"><path d="M13 2L4.5 13.5H11L9 22L19.5 10H13L13 2Z"/></svg>
+      KI-Telefon-Agent für Kfz-Werkstätten
+    </span>
+    <h1 class="text-4xl sm:text-5xl font-black tracking-tight leading-tight mb-4">
+      Kein Anruf geht verloren.<br />
+      <span style="color:#FF6B00">Samir arbeitet 24/7.</span>
+    </h1>
+    <p class="text-lg text-zinc-400 max-w-xl mx-auto mb-8 leading-relaxed">
+      Voxaro verbindet deinen KI-Assistenten direkt mit deinem Werkstatt-Dashboard.
+      Aufträge entstehen automatisch — du konzentrierst dich auf die Arbeit.
+    </p>
+    <div class="flex flex-col sm:flex-row gap-3 justify-center">
+      <a href="mailto:kontakt@voxaro.de?subject=Demo%20Anfrage"
+         class="inline-flex items-center justify-center gap-2 bg-orange-500 hover:bg-orange-400 text-white font-semibold px-6 py-3 rounded-xl transition-colors text-sm">
+        Demo vereinbaren
+      </a>
+      <a href="https://voxaro.vercel.app/login"
+         class="inline-flex items-center justify-center gap-2 bg-zinc-800 hover:bg-zinc-700 text-zinc-100 font-semibold px-6 py-3 rounded-xl transition-colors text-sm">
+        Zum Dashboard
+      </a>
+    </div>
+  </section>
+
+  <!-- Stats -->
+  <section class="border-y border-zinc-800 bg-zinc-900/30">
+    <div class="max-w-5xl mx-auto px-4 py-10 grid grid-cols-3 gap-6 text-center">
+      <div>
+        <p class="text-2xl sm:text-3xl font-black" style="color:#FF6B00">24/7</p>
+        <p class="text-xs text-zinc-500 mt-1">Erreichbarkeit</p>
+      </div>
+      <div>
+        <p class="text-2xl sm:text-3xl font-black" style="color:#FF6B00">&lt; 10s</p>
+        <p class="text-xs text-zinc-500 mt-1">Auftrag erstellt</p>
+      </div>
+      <div>
+        <p class="text-2xl sm:text-3xl font-black" style="color:#FF6B00">0</p>
+        <p class="text-xs text-zinc-500 mt-1">Verpasste Anrufe</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- How it works -->
+  <section class="py-20">
+    <div class="max-w-5xl mx-auto px-4">
+      <p class="text-xs font-semibold text-orange-400 uppercase tracking-widest text-center mb-2">So funktioniert's</p>
+      <h2 class="text-2xl sm:text-3xl font-black text-center mb-12">3 Schritte — vollautomatisch</h2>
+      <div class="grid sm:grid-cols-3 gap-4">
+
+        <div class="bg-zinc-900 border border-zinc-800 rounded-2xl p-6 relative overflow-hidden">
+          <span class="absolute top-4 right-4 text-4xl font-black text-zinc-800/60 select-none leading-none">01</span>
+          <div class="w-10 h-10 rounded-xl bg-orange-500/10 flex items-center justify-center mb-4">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#fb923c" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.5 12 19.79 19.79 0 0 1 1.15 3.18 2 2 0 0 1 3.12 1h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.09 8.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 21 16z"/>
+            </svg>
+          </div>
+          <h3 class="font-bold text-zinc-100 mb-2">Kunde ruft an</h3>
+          <p class="text-sm text-zinc-500 leading-relaxed">Samir nimmt jeden Anruf entgegen — auch wenn du gerade in der Grube bist oder die Werkstatt geschlossen hat.</p>
+        </div>
+
+        <div class="bg-zinc-900 border border-zinc-800 rounded-2xl p-6 relative overflow-hidden">
+          <span class="absolute top-4 right-4 text-4xl font-black text-zinc-800/60 select-none leading-none">02</span>
+          <div class="w-10 h-10 rounded-xl bg-orange-500/10 flex items-center justify-center mb-4">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#fb923c" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/>
+            </svg>
+          </div>
+          <h3 class="font-bold text-zinc-100 mb-2">Samir erfasst alles</h3>
+          <p class="text-sm text-zinc-500 leading-relaxed">Fahrzeug, Kennzeichen, Problem und Rückrufwunsch — strukturiert aufgenommen, ohne dass du dabei sein musst.</p>
+        </div>
+
+        <div class="bg-zinc-900 border border-zinc-800 rounded-2xl p-6 relative overflow-hidden">
+          <span class="absolute top-4 right-4 text-4xl font-black text-zinc-800/60 select-none leading-none">03</span>
+          <div class="w-10 h-10 rounded-xl bg-orange-500/10 flex items-center justify-center mb-4">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#fb923c" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/>
+            </svg>
+          </div>
+          <h3 class="font-bold text-zinc-100 mb-2">Auftrag im Dashboard</h3>
+          <p class="text-sm text-zinc-500 leading-relaxed">Sofort sichtbar im Voxaro-Dashboard. Kein Zettel, kein Vergessen, kein Telefonat nötig.</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Features -->
+  <section class="bg-zinc-900/50 border-y border-zinc-800 py-20">
+    <div class="max-w-5xl mx-auto px-4">
+      <p class="text-xs font-semibold text-orange-400 uppercase tracking-widest text-center mb-2">Features</p>
+      <h2 class="text-2xl sm:text-3xl font-black text-center mb-12">Alles was deine Werkstatt braucht</h2>
+      <div class="grid sm:grid-cols-2 gap-4">
+
+        <div class="bg-zinc-900 border border-zinc-800 rounded-2xl p-6 flex gap-4">
+          <div class="w-10 h-10 rounded-xl bg-orange-500/10 flex items-center justify-center shrink-0 mt-0.5">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#fb923c" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/>
+            </svg>
+          </div>
+          <div>
+            <h3 class="font-bold text-zinc-100 mb-1.5">24/7 Erreichbarkeit</h3>
+            <p class="text-sm text-zinc-500 leading-relaxed">Samir schläft nie. Auch außerhalb der Öffnungszeiten werden Anrufe professionell entgegengenommen.</p>
+          </div>
+        </div>
+
+        <div class="bg-zinc-900 border border-zinc-800 rounded-2xl p-6 flex gap-4">
+          <div class="w-10 h-10 rounded-xl bg-orange-500/10 flex items-center justify-center shrink-0 mt-0.5">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#fb923c" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/>
+            </svg>
+          </div>
+          <div>
+            <h3 class="font-bold text-zinc-100 mb-1.5">Automatische Auftragsanlage</h3>
+            <p class="text-sm text-zinc-500 leading-relaxed">Aus jedem Anruf wird sofort ein strukturierter Auftrag — mit Fahrzeug, Problem und Kontaktdaten.</p>
+          </div>
+        </div>
+
+        <div class="bg-zinc-900 border border-zinc-800 rounded-2xl p-6 flex gap-4">
+          <div class="w-10 h-10 rounded-xl bg-orange-500/10 flex items-center justify-center shrink-0 mt-0.5">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#fb923c" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+            </svg>
+          </div>
+          <div>
+            <h3 class="font-bold text-zinc-100 mb-1.5">Status-SMS an Kunden</h3>
+            <p class="text-sm text-zinc-500 leading-relaxed">Kunden werden automatisch per SMS informiert: Termin bestätigt, Freigabe nötig, Fahrzeug fertig.</p>
+          </div>
+        </div>
+
+        <div class="bg-zinc-900 border border-zinc-800 rounded-2xl p-6 flex gap-4">
+          <div class="w-10 h-10 rounded-xl bg-orange-500/10 flex items-center justify-center shrink-0 mt-0.5">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#fb923c" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/>
+            </svg>
+          </div>
+          <div>
+            <h3 class="font-bold text-zinc-100 mb-1.5">Freigabe per Link</h3>
+            <p class="text-sm text-zinc-500 leading-relaxed">Zusatzarbeiten mit Foto und Preis direkt per SMS freigeben lassen — kein Anruf nötig.</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonial -->
+  <section class="py-20">
+    <div class="max-w-2xl mx-auto px-4 text-center">
+      <p class="text-xs font-semibold text-orange-400 uppercase tracking-widest mb-6">Pilotkunde</p>
+      <blockquote class="text-xl sm:text-2xl font-semibold text-zinc-100 leading-relaxed mb-8">
+        „Seit Voxaro läuft kein Anruf mehr ins Leere. Samir nimmt alles auf — ich sehe den Auftrag sofort im Dashboard."
+      </blockquote>
+      <div class="flex items-center justify-center gap-3">
+        <div class="w-10 h-10 rounded-full bg-orange-500/20 flex items-center justify-center shrink-0">
+          <span class="text-sm font-black text-orange-400">M</span>
+        </div>
+        <div class="text-left">
+          <p class="text-sm font-semibold text-zinc-200">[Kundenname entfernt]</p>
+          <p class="text-xs text-zinc-500">Kfz-Werkstatt · [Ort entfernt]</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="bg-zinc-900/50 border-y border-zinc-800 py-24">
+    <div class="max-w-5xl mx-auto px-4 text-center">
+      <h2 class="text-3xl sm:text-4xl font-black mb-4">Bereit, keinen Anruf mehr zu verpassen?</h2>
+      <p class="text-zinc-400 mb-8 max-w-md mx-auto text-sm leading-relaxed">
+        Voxaro ist bereits bei Werkstätten in Deutschland im Einsatz.
+        Kontaktiere uns für eine persönliche Demo — kostenlos und unverbindlich.
+      </p>
+      <a href="mailto:kontakt@voxaro.de?subject=Demo%20Anfrage"
+         class="inline-flex items-center gap-2 bg-orange-500 hover:bg-orange-400 text-white font-semibold px-8 py-3 rounded-xl transition-colors text-sm">
+        Demo vereinbaren
+      </a>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="border-t border-zinc-800 py-8">
+    <div class="max-w-5xl mx-auto px-4 flex flex-col sm:flex-row items-center justify-between gap-4">
+      <div class="flex items-center gap-2">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+          <path d="M13 2L4.5 13.5H11L9 22L19.5 10H13L13 2Z" fill="#FF6B00"/>
+        </svg>
+        <span class="text-base font-black tracking-wider">
+          <span style="color:#FF6B00">VOX</span><span class="text-white">ARO</span>
+        </span>
+      </div>
+      <p class="text-xs text-zinc-600">© 2025 Voxaro. Alle Rechte vorbehalten.</p>
+      <div class="flex gap-4 text-xs text-zinc-600">
+        <a href="#" class="hover:text-zinc-400 transition-colors">Impressum</a>
+        <a href="#" class="hover:text-zinc-400 transition-colors">Datenschutz</a>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>
