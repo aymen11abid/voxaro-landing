@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Voxaro — KI Werkstatt Assistent</title>
-  <meta name="description" content="Kein Anruf geht verloren. Samir arbeitet 24/7. Der KI-Telefon-Agent für Kfz-Werkstätten." />
+  <meta name="description" content="Kein Anruf geht verloren. Sarah arbeitet 24/7. Der KI-Telefon-Agent für Kfz-Werkstätten." />
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
     tailwind.config = {
@@ -40,10 +40,13 @@
           <span style="color:#FF6B00">VOX</span><span class="text-white">ARO</span>
         </span>
       </div>
-      <a href="https://voxaro.vercel.app/login"
-         class="text-sm font-medium border border-orange-500/50 text-orange-400 hover:border-orange-400 hover:text-orange-300 px-4 py-1.5 rounded-lg transition-colors">
-        Anmelden
-      </a>
+      <div class="flex items-center gap-4">
+        <a href="#preise" class="text-sm font-medium text-zinc-400 hover:text-zinc-100 transition-colors">Preise</a>
+        <a href="https://voxaro.vercel.app/login"
+           class="text-sm font-medium border border-orange-500/50 text-orange-400 hover:border-orange-400 hover:text-orange-300 px-4 py-1.5 rounded-lg transition-colors">
+          Anmelden
+        </a>
+      </div>
     </div>
   </nav>
 
@@ -116,7 +119,7 @@
               <path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/>
             </svg>
           </div>
-          <h3 class="font-bold text-zinc-100 mb-2">Samir erfasst alles</h3>
+          <h3 class="font-bold text-zinc-100 mb-2">Sarah erfasst alles</h3>
           <p class="text-sm text-zinc-500 leading-relaxed">Fahrzeug, Kennzeichen, Problem und Rückrufwunsch — strukturiert aufgenommen, ohne dass du dabei sein musst.</p>
         </div>
 
@@ -223,6 +226,92 @@
         </div>
       </div>
     </div>
+  </section>
+
+  <!-- Preise -->
+  <section id="preise" class="max-w-5xl mx-auto px-4 py-24">
+    <div class="text-center mb-4">
+      <h2 class="text-3xl sm:text-4xl font-black mb-4">Ein Preis. Keine Überraschungen.</h2>
+      <p class="text-zinc-400 max-w-lg mx-auto text-sm leading-relaxed">
+        Telefonassistent und Werkstattsoftware zusammen — für weniger als ein reiner Telefondienst kostet.
+        Monatlich kündbar, Einrichtung inklusive.
+      </p>
+    </div>
+
+    <div class="grid md:grid-cols-3 gap-5 mt-12 items-start">
+
+      <!-- Starter -->
+      <div class="bg-zinc-900 border border-zinc-800 rounded-2xl p-6 flex flex-col">
+        <h3 class="text-lg font-bold">Starter</h3>
+        <p class="text-xs text-zinc-500 mt-1 mb-5">Für Werkstätten, die keinen Anruf mehr verlieren wollen.</p>
+        <div class="flex items-baseline gap-1.5 mb-6">
+          <span class="text-4xl font-black">99</span>
+          <span class="text-zinc-400 text-sm">€ / Monat</span>
+        </div>
+        <ul class="space-y-2.5 text-sm text-zinc-300 flex-1">
+          <li class="flex gap-2"><span class="text-orange-500 shrink-0">✓</span> Sarah nimmt Anrufe an — <b>150 Minuten inklusive</b></li>
+          <li class="flex gap-2"><span class="text-orange-500 shrink-0">✓</span> Aufträge &amp; Kalender</li>
+          <li class="flex gap-2"><span class="text-orange-500 shrink-0">✓</span> Kunden- &amp; Fahrzeugakten</li>
+          <li class="flex gap-2"><span class="text-orange-500 shrink-0">✓</span> Angebote &amp; Rechnungen</li>
+          <li class="flex gap-2"><span class="text-orange-500 shrink-0">✓</span> SMS &amp; WhatsApp an Kunden</li>
+        </ul>
+        <a href="mailto:kontakt@voxaro.de?subject=Starter%20-%20Demo%20Anfrage"
+           class="mt-6 text-center border border-zinc-700 hover:border-zinc-500 text-zinc-200 font-medium px-5 py-2.5 rounded-xl transition-colors text-sm">
+          Demo vereinbaren
+        </a>
+      </div>
+
+      <!-- Pro (hervorgehoben) -->
+      <div class="bg-zinc-900 border-2 border-orange-500/60 rounded-2xl p-6 flex flex-col relative md:-mt-3">
+        <span class="absolute -top-3 left-1/2 -translate-x-1/2 bg-orange-500 text-white text-[11px] font-bold px-3 py-1 rounded-full whitespace-nowrap">
+          Empfohlen
+        </span>
+        <h3 class="text-lg font-bold">Pro</h3>
+        <p class="text-xs text-zinc-500 mt-1 mb-5">Der komplette Werkstatt-Ablauf, vom Anruf bis zur Rechnung.</p>
+        <div class="flex items-baseline gap-1.5 mb-6">
+          <span class="text-4xl font-black">199</span>
+          <span class="text-zinc-400 text-sm">€ / Monat</span>
+        </div>
+        <ul class="space-y-2.5 text-sm text-zinc-300 flex-1">
+          <li class="flex gap-2"><span class="text-orange-500 shrink-0">✓</span> Alles aus Starter, mit <b>400 Minuten</b></li>
+          <li class="flex gap-2"><span class="text-orange-500 shrink-0">✓</span> Leistungskatalog mit Preisen &amp; Paketen</li>
+          <li class="flex gap-2"><span class="text-orange-500 shrink-0">✓</span> Freigabe per SMS — Kunde bestätigt Zusatzarbeiten</li>
+          <li class="flex gap-2"><span class="text-orange-500 shrink-0">✓</span> Reklamationen mit Terminbuchung</li>
+          <li class="flex gap-2"><span class="text-orange-500 shrink-0">✓</span> Buchhaltung: lexoffice &amp; sevDesk</li>
+          <li class="flex gap-2"><span class="text-orange-500 shrink-0">✓</span> Anrufen direkt aus der Software</li>
+        </ul>
+        <a href="mailto:kontakt@voxaro.de?subject=Pro%20-%20Demo%20Anfrage"
+           class="mt-6 text-center bg-orange-500 hover:bg-orange-400 text-white font-semibold px-5 py-2.5 rounded-xl transition-colors text-sm">
+          Demo vereinbaren
+        </a>
+      </div>
+
+      <!-- Autohandel -->
+      <div class="bg-zinc-900 border border-zinc-800 rounded-2xl p-6 flex flex-col">
+        <h3 class="text-lg font-bold">Autohandel</h3>
+        <p class="text-xs text-zinc-500 mt-1 mb-5">Für Werkstätten, die auch mit Fahrzeugen handeln.</p>
+        <div class="flex items-baseline gap-1.5 mb-6">
+          <span class="text-4xl font-black">+99</span>
+          <span class="text-zinc-400 text-sm">€ / Monat</span>
+        </div>
+        <ul class="space-y-2.5 text-sm text-zinc-300 flex-1">
+          <li class="flex gap-2"><span class="text-orange-500 shrink-0">✓</span> An- &amp; Verkauf mit Kundenportal</li>
+          <li class="flex gap-2"><span class="text-orange-500 shrink-0">✓</span> <b>Kaufvertrag fotografieren — Daten stehen im System</b></li>
+          <li class="flex gap-2"><span class="text-orange-500 shrink-0">✓</span> Fahrzeugbestand mit Status &amp; Standtagen</li>
+          <li class="flex gap-2"><span class="text-orange-500 shrink-0">✓</span> Eingangs-Check mit Fotos vom Handy</li>
+          <li class="flex gap-2"><span class="text-orange-500 shrink-0">✓</span> Abholung planen, Sammelvollmacht auf Knopfdruck</li>
+        </ul>
+        <p class="text-[11px] text-zinc-600 mt-4">Zusatzmodul zu Pro</p>
+        <a href="mailto:kontakt@voxaro.de?subject=Autohandel%20-%20Demo%20Anfrage"
+           class="mt-3 text-center border border-zinc-700 hover:border-zinc-500 text-zinc-200 font-medium px-5 py-2.5 rounded-xl transition-colors text-sm">
+          Demo vereinbaren
+        </a>
+      </div>
+    </div>
+
+    <p class="text-center text-xs text-zinc-500 mt-8 leading-relaxed">
+      Alle Preise zzgl. MwSt. · Weitere Anrufminuten 0,25 € / Min. · Monatlich kündbar, keine Einrichtungsgebühr
+    </p>
   </section>
 
   <!-- CTA -->
