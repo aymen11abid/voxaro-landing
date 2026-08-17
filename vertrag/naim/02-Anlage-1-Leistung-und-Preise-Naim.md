@@ -2,7 +2,7 @@
 
 Anlage zum Pilot- und Softwarenutzungsvertrag zwischen **Aymen Abid — Voxaro** und **Auto Naim**, [Straße], [PLZ] Darmstadt — Vertrag vom [Datum]
 
-> **⚠ Vor Unterschrift bestätigen.** Die Konditionen unten entsprechen dem Stand der Preis-Diskussion vom 28.07.2026 (Pilot 249 €, 12 Monate, 400 Min / 300 SMS, 990 € Setup). Diese Zahlen wurden nie final bestätigt — bitte prüfen und ggf. ändern, bevor das Blatt gedruckt wird.
+> **Konditionen bestätigt am 17.08.2026:** Pilotpreis 249 € / Monat, feste Laufzeit 12 Monate, 400 Minuten und 300 Nachrichten inklusive, Einrichtungsvergütung erlassen als Gegenleistung für die Mitwirkung nach § 2.2.
 
 ---
 
@@ -21,17 +21,22 @@ Anlage zum Pilot- und Softwarenutzungsvertrag zwischen **Aymen Abid — Voxaro**
 | Position | Betrag (netto) |
 |---|---|
 | **Pilot-Monatsentgelt** (alle Module oben) | **249 € / Monat** |
-| Einrichtung, Onboarding, Übernahme der Bestandsliste (einmalig) | **990 €** |
+| Einrichtung, Onboarding, Übernahme der Bestandsliste (einmalig) | Wert **990 €** — **erlassen**, siehe unten |
 | Telefonminuten über 400 Min. | 0,25 € je angefangene Minute |
 | Nachrichten über 300 Stück | 0,12 € je Nachricht |
 | Individuelle Anpassungen (§ 3.2) | ______ € / Stunde, nur nach Angebot und Freigabe |
 
 Alle Beträge zuzüglich gesetzlicher Umsatzsteuer (derzeit 19 %).
 
-**Einrichtungsvergütung:** ☐ mit der ersten Monatsrechnung · ☐ in ___ Raten · ☐ erlassen
+**Einrichtungsvergütung.** Die Einrichtung hat einen Wert von 990 €. Voxaro erlässt diesen Betrag
+**als Gegenleistung für die Mitwirkung von Auto Naim in der Pilotphase nach § 2.2 und für die
+Referenznennung nach § 2.5**. Endet der Vertrag vor Ablauf der zwölf Monate aus einem Grund, den
+Auto Naim zu vertreten hat, wird die Einrichtungsvergütung anteilig — mit 1/12 je nicht erfüllten
+Vertragsmonat — nachträglich fällig.
 
-**Regulärer Listenpreis zum Vergleich:** Pro 199 € + Autohandel 99 € = 298 € / Monat.
-Der Pilotpreis von 249 € ist ein Sonderpreis für die Mitwirkung nach § 2.2 und gilt nur für die Pilotphase.
+**Regulärer Listenpreis zum Vergleich:** Pro 199 € + Autohandel 99 € = 298 € / Monat, zzgl. 990 €
+Einrichtung. Der Pilotpreis von 249 € ist ein Sonderpreis für die Mitwirkung nach § 2.2 und gilt
+nur für die Pilotphase.
 
 ## 3 · Laufzeit
 
@@ -43,8 +48,7 @@ Der Pilotpreis von 249 € ist ein Sonderpreis für die Mitwirkung nach § 2.2 u
 | Preis nach Ablauf der Pilotphase | dann gültige Preisliste, Ankündigung 8 Wochen vorher (§ 2.3) |
 | Sonderkündigungsrecht | zum Ende der Pilotphase, wenn Auto Naim den Folgepreis nicht annimmt |
 
-*Alternative, falls keine feste Laufzeit gewünscht ist: monatlich kündbar mit 14 Tagen zum Monatsende — dann entfällt der Pilot-Rabatt und es gilt der Listenpreis von 298 €.*
-☐ feste Laufzeit 12 Monate zu 249 € ☐ monatlich kündbar zu 298 €
+☑ **feste Laufzeit 12 Monate zu 249 €** (gewählt) ☐ monatlich kündbar zum Listenpreis 298 €
 
 ## 4 · Telefonie
 

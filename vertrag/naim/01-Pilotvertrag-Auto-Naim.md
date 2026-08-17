@@ -46,7 +46,7 @@ Inhaber: [Ressa Naim] · USt-IdNr.: [•] · E-Mail: [•]
 
 ## § 3 Einrichtung
 
-3.1 Voxaro richtet die Software gemeinsam mit Auto Naim ein: Begrüßung und Gesprächsführung des Assistenten, Öffnungszeiten, Leistungskatalog, Übernahme der bestehenden Bestandsliste, Vorlagen für Vollmachten und Checklisten. Die Einrichtungsvergütung ergibt sich aus Anlage 1.
+3.1 Voxaro richtet die Software gemeinsam mit Auto Naim ein: Begrüßung und Gesprächsführung des Assistenten, Öffnungszeiten, Leistungskatalog, Übernahme der bestehenden Bestandsliste, Vorlagen für Vollmachten und Checklisten. Die Einrichtungsvergütung und deren Erlass als Gegenleistung für die Mitwirkung nach Ziffer 2.2 ergeben sich aus Anlage 1.
 
 3.2 Individuelle Anpassungen über den Umfang der Anlage 1 hinaus erbringt Voxaro nach Aufwand zum dort genannten Stundensatz, nach vorherigem Angebot und Freigabe in Textform.
 

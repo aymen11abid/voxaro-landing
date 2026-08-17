@@ -30,7 +30,8 @@ Welche Stellen der alten AGB nachgezogen werden sollten, steht in `naim/00-Pruef
 
 ## Offen
 
-- Konditionen für Naim bestätigen (249 € / 12 Monate / 400 Min / 300 SMS / 990 € Setup)
+- Stundensatz für individuelle Anpassungen festlegen (§ 3.2)
+- Naims Firmierung, Adresse, USt-IdNr. und Unterzeichner eintragen
 - Denselben Satz für **Auto Malik** erstellen — dort ohne die Autohandel-Paragrafen
 - Impressum und Datenschutzerklärung auf der Landingpage sind noch leere Links
 

@@ -56,9 +56,9 @@ Ein Pilotkunde, der beim Bauen mitredet, ist rechtlich riskanter als ein normale
 
 ## 5 · Was du entscheiden musst, bevor gedruckt wird
 
-1. **Die Konditionen bestätigen.** In Anlage 1 stehen 249 €/Monat, 12 Monate fest, 400 Min, 300 SMS, 990 € Einrichtung — der Stand aus der Preis-Diskussion vom 28.07.2026, der nie bestätigt wurde. Regulär wären es 298 € (Pro 199 + Autohandel 99).
-2. **Einrichtungsgebühr:** 990 € sofort, in Raten oder erlassen? Bei einem Pilotkunden, der viel Zeit investiert, ist Erlass oder Verrechnung üblich — dann aber ausdrücklich als Gegenleistung für die Mitwirkung nach § 2.2 benennen, nicht kommentarlos streichen.
-3. **Stundensatz** für Anpassungen (§ 3.2). Vorschlag 90–150 € netto.
+1. ~~Konditionen bestätigen~~ ✅ **entschieden am 17.08.2026:** 249 €/Monat, feste Laufzeit 12 Monate, 400 Min, 300 Nachrichten. Regulär wären es 298 € (Pro 199 + Autohandel 99).
+2. ~~Einrichtungsgebühr~~ ✅ **entschieden: erlassen** — aber nicht kommentarlos gestrichen. In Anlage 1 steht der Wert von 990 € ausdrücklich als Gegenleistung für die Mitwirkung (§ 2.2) und die Referenznennung (§ 2.5), und er wird anteilig fällig, wenn Naim den Vertrag vor Ablauf der zwölf Monate aus einem von ihm zu vertretenden Grund beendet. Das ist der Grund, warum der Erlass überhaupt im Vertrag steht: So bleibt er ein Verhandlungswert und wird nicht zum Nichts.
+3. **Stundensatz** für Anpassungen (§ 3.2) — noch offen. Vorschlag 90–150 € netto.
 4. **Naims vollständige Firmierung, Adresse, USt-IdNr.** und den Namen des Unterzeichners eintragen — in den Unterlagen taucht „Ressa Naim" als Vollmachtgeber auf, aber nicht die Firmierung laut Gewerbeanmeldung.
 5. **Malik nicht vergessen:** Für Auto Malik fehlt derselbe Satz Unterlagen. Der Vertrag hier lässt sich mit geändertem Namen und ohne § 6 (kein Fahrzeughandel) direkt wiederverwenden.
 
