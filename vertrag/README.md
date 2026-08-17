@@ -1,20 +1,40 @@
 # Voxaro — Vertragsunterlagen
 
 Vorlagen für den Vertragsschluss mit Werkstatt- und Autohandels-Kunden (B2B, deutsches Recht).
+Anbieter: **Aymen Abid — Voxaro**, Noackstraße 17 A, 64285 Darmstadt.
+
+## Auto Naim (konkreter Vertrag)
 
 | Datei | Inhalt |
 |---|---|
-| [`00-Pruefbericht.md`](00-Pruefbericht.md) | Erklärung: worauf geachtet wurde, was dich schützt, was du noch ausfüllen musst |
-| [`01-Nutzungsvertrag.md`](01-Nutzungsvertrag.md) | Der Hauptvertrag (SaaS-Nutzungsvertrag) |
-| [`02-Anlage-1-Leistung-und-Preise.md`](02-Anlage-1-Leistung-und-Preise.md) | Paket, Preise, Rufnummern, Ansprechpartner — das Blatt, das pro Kunde ausgefüllt wird |
-| [`03-Anlage-2-AVV.md`](03-Anlage-2-AVV.md) | Auftragsverarbeitungsvertrag nach Art. 28 DSGVO (Pflicht) |
+| [`naim/00-Pruefbericht-Naim.md`](naim/00-Pruefbericht-Naim.md) | Was gegenüber der Vorlage geändert wurde und warum — **zuerst lesen** |
+| [`naim/01-Pilotvertrag-Auto-Naim.md`](naim/01-Pilotvertrag-Auto-Naim.md) | Hauptvertrag inkl. Pilotphase und Autohandel-Regeln |
+| [`naim/02-Anlage-1-Leistung-und-Preise-Naim.md`](naim/02-Anlage-1-Leistung-und-Preise-Naim.md) | Preisblatt — **Konditionen vor dem Druck bestätigen** |
+| [`naim/03-Anlage-2-AVV-Naim.md`](naim/03-Anlage-2-AVV-Naim.md) | Auftragsverarbeitungsvertrag mit echter Dienstleisterliste |
 
-## So wird es benutzt
+## Allgemeine Vorlage (für weitere Kunden)
 
-1. Einmalig: alle `[•]`-Platzhalter im Nutzungsvertrag und im AVV mit den eigenen Firmendaten füllen und die Dienstleisterliste in Anlage 2 § 6 vervollständigen.
-2. Pro Kunde: nur **Anlage 1** ausfüllen (Paket, Preis, Rufnummern, Ansprechpartner).
-3. Alle drei Dokumente zusammen unterschreiben — der AVV ist kein optionales Extra.
+| Datei | Inhalt |
+|---|---|
+| [`00-Pruefbericht.md`](00-Pruefbericht.md) | Begründung der Klauseln |
+| [`01-Nutzungsvertrag.md`](01-Nutzungsvertrag.md) | Hauptvertrag, generisch |
+| [`02-Anlage-1-Leistung-und-Preise.md`](02-Anlage-1-Leistung-und-Preise.md) | Preisblatt nach Listenpreisen (99 / 199 / +99 €) |
+| [`03-Anlage-2-AVV.md`](03-Anlage-2-AVV.md) | AVV mit Platzhaltern für die Dienstleister |
+
+## Verhältnis zu den bestehenden Unterlagen
+
+Im CRM-Repo `aymen11abid/auto-flow-crm` liegen unter `docs/` die älteren `agb.md` (Stand Mai 2026),
+`avv-werkstatt-vorlage.md` und `auftragsbestaetigung-vorlage.md`. Der Naim-Vertrag ist eine
+**Individualvereinbarung** und geht den AGB vor (§ 305b BGB); die AGB gelten nur ergänzend.
+Welche Stellen der alten AGB nachgezogen werden sollten, steht in `naim/00-Pruefbericht-Naim.md`, Abschnitt 2.
+
+## Offen
+
+- Konditionen für Naim bestätigen (249 € / 12 Monate / 400 Min / 300 SMS / 990 € Setup)
+- Denselben Satz für **Auto Malik** erstellen — dort ohne die Autohandel-Paragrafen
+- Impressum und Datenschutzerklärung auf der Landingpage sind noch leere Links
 
 ## Hinweis
 
-Diese Unterlagen sind sorgfältig erstellt, ersetzen aber keine Rechtsberatung. Eine einmalige Prüfung durch einen Anwalt für IT-Recht vor dem ersten Einsatz wird empfohlen; danach ist die Vorlage beliebig oft verwendbar.
+Sorgfältig erstellt, aber keine Rechtsberatung. Eine einmalige Prüfung durch einen Anwalt für
+IT-Recht vor dem ersten Einsatz wird empfohlen.
