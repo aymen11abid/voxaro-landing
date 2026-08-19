@@ -5,26 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Voxaro — KI Werkstatt Assistent</title>
   <meta name="description" content="Kein Anruf geht verloren. Sarah arbeitet 24/7. Der KI-Telefon-Agent für Kfz-Werkstätten." />
-  <script src="https://cdn.tailwindcss.com"></script>
-  <script>
-    tailwind.config = {
-      theme: {
-        extend: {
-          colors: {
-            brand: '#FF6B00',
-          },
-          fontFamily: {
-            sans: ['-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'sans-serif'],
-          },
-        },
-      },
-    }
-  </script>
-  <style>
-    body { background: #09090b; }
-    @keyframes pulse-slow { 0%,100%{opacity:1} 50%{opacity:.6} }
-    .pulse-slow { animation: pulse-slow 2.5s ease-in-out infinite; }
-  </style>
+  <link rel="stylesheet" href="/styles.css" />
 </head>
 <body class="text-zinc-100 font-sans antialiased">
 
@@ -37,7 +18,7 @@
           <path d="M13 2L4.5 13.5H11L9 22L19.5 10H13L13 2Z" fill="#FF6B00"/>
         </svg>
         <span class="text-lg font-black tracking-wider leading-none">
-          <span style="color:#FF6B00">VOX</span><span class="text-white">ARO</span>
+          <span class="text-brand">VOX</span><span class="text-white">ARO</span>
         </span>
       </div>
       <div class="flex items-center gap-4">
@@ -58,7 +39,7 @@
     </span>
     <h1 class="text-4xl sm:text-5xl font-black tracking-tight leading-tight mb-4">
       Kein Anruf geht verloren.<br />
-      <span style="color:#FF6B00">Dein KI-Assistent arbeitet 24/7.</span>
+      <span class="text-brand">Dein KI-Assistent arbeitet 24/7.</span>
     </h1>
     <p class="text-lg text-zinc-400 max-w-xl mx-auto mb-8 leading-relaxed">
       Voxaro nimmt Anrufe entgegen, erfasst Aufträge automatisch und hält dein Team auf dem Laufenden —
@@ -80,15 +61,15 @@
   <section class="border-y border-zinc-800 bg-zinc-900/30">
     <div class="max-w-5xl mx-auto px-4 py-10 grid grid-cols-3 gap-6 text-center">
       <div>
-        <p class="text-2xl sm:text-3xl font-black" style="color:#FF6B00">24/7</p>
+        <p class="text-2xl sm:text-3xl font-black text-brand">24/7</p>
         <p class="text-xs text-zinc-500 mt-1">Erreichbarkeit</p>
       </div>
       <div>
-        <p class="text-2xl sm:text-3xl font-black" style="color:#FF6B00">&lt; 10s</p>
+        <p class="text-2xl sm:text-3xl font-black text-brand">&lt; 10s</p>
         <p class="text-xs text-zinc-500 mt-1">Auftrag erstellt</p>
       </div>
       <div>
-        <p class="text-2xl sm:text-3xl font-black" style="color:#FF6B00">0</p>
+        <p class="text-2xl sm:text-3xl font-black text-brand">0</p>
         <p class="text-xs text-zinc-500 mt-1">Verpasste Anrufe</p>
       </div>
     </div>
@@ -215,7 +196,7 @@
             <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#fb923c" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
           </div>
           <h4 class="font-bold text-zinc-100 text-sm">Datensicherheit</h4>
-          <p class="text-xs text-zinc-500 leading-relaxed">Daten bleiben in Deutschland — DSGVO-konform von Anfang an.</p>
+          <p class="text-xs text-zinc-500 leading-relaxed">Verarbeitung nach DSGVO, mit Auftragsverarbeitungsvertrag — auf Wunsch legen wir alle Anbieter offen.</p>
         </div>
         <div class="space-y-2">
           <div class="w-8 h-8 rounded-lg bg-orange-500/10 flex items-center justify-center">
@@ -374,13 +355,13 @@
           <path d="M13 2L4.5 13.5H11L9 22L19.5 10H13L13 2Z" fill="#FF6B00"/>
         </svg>
         <span class="text-base font-black tracking-wider">
-          <span style="color:#FF6B00">VOX</span><span class="text-white">ARO</span>
+          <span class="text-brand">VOX</span><span class="text-white">ARO</span>
         </span>
       </div>
       <p class="text-xs text-zinc-600">© 2025 Voxaro. Alle Rechte vorbehalten.</p>
       <div class="flex gap-4 text-xs text-zinc-600">
-        <a href="#" class="hover:text-zinc-400 transition-colors">Impressum</a>
-        <a href="#" class="hover:text-zinc-400 transition-colors">Datenschutz</a>
+        <a href="/impressum" class="hover:text-zinc-400 transition-colors">Impressum</a>
+        <a href="/datenschutz" class="hover:text-zinc-400 transition-colors">Datenschutz</a>
       </div>
     </div>
   </footer>

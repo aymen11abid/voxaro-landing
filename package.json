@@ -1,0 +1,13 @@
+{
+  "name": "voxaro-landing",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Voxaro Landing Page — statisches HTML mit lokal gebautem Tailwind CSS",
+  "scripts": {
+    "build": "tailwindcss -i ./src/input.css -o ./styles.css --minify",
+    "watch": "tailwindcss -i ./src/input.css -o ./styles.css --watch"
+  },
+  "devDependencies": {
+    "tailwindcss": "^3.4.17"
+  }
+}
