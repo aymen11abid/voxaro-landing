@@ -20,11 +20,13 @@ Anlage zum Pilot- und Softwarenutzungsvertrag zwischen **Aymen Abid — Voxaro**
 
 | Position | Betrag (netto) |
 |---|---|
-| **Pilot-Monatsentgelt** (alle Module oben) | **249 € / Monat** |
+| **Basis** — Werkstatt- und Autohandelssoftware (Ziffer 1, ohne Assistent) | 149 € / Monat |
+| **KI-Telefonassistent** inkl. 400 Freiminuten | + 100 € / Monat |
+| **Vereinbartes Pilot-Monatsentgelt** | **249 € / Monat** |
 | Einrichtung, Onboarding, Übernahme der Bestandsliste (einmalig) | Wert **990 €** — **erlassen**, siehe unten |
 | Telefonminuten über 400 Min. | 0,25 € je angefangene Minute |
 | Nachrichten über 300 Stück | 0,12 € je Nachricht |
-| Individuelle Anpassungen (§ 3.2) | ______ € / Stunde, nur nach Angebot und Freigabe |
+| Individuelle Anpassungen (§ 3.2) | **95 € / Stunde**, nur nach Angebot und Freigabe |
 
 Alle Beträge zuzüglich gesetzlicher Umsatzsteuer (derzeit 19 %).
 
@@ -33,6 +35,17 @@ Alle Beträge zuzüglich gesetzlicher Umsatzsteuer (derzeit 19 %).
 Referenznennung nach § 2.5**. Endet der Vertrag vor Ablauf der zwölf Monate aus einem Grund, den
 Auto Naim zu vertreten hat, wird die Einrichtungsvergütung anteilig — mit 1/12 je nicht erfüllten
 Vertragsmonat — nachträglich fällig.
+
+**Abbestellen des Assistenten.** Auto Naim kann den KI-Telefonassistenten mit einer Frist von
+vier Wochen zum Monatsende abbestellen; das Entgelt sinkt dann auf 149 € / Monat. Die übrigen
+Vereinbarungen — insbesondere Laufzeit und Einrichtungsvergütung — bleiben unberührt. Eine
+spätere Wiederaufnahme ist jederzeit zum dann gültigen Preis möglich.
+
+**Individuelle Anpassungen — was kostet und was nicht.** Kleine Änderungen bis zu 30 Minuten je
+Monat (Texte, Öffnungszeiten, Einträge im Leistungskatalog, Einstellungen) sind kostenfrei.
+Weiterentwicklungen, die allen Kunden von Voxaro zugutekommen, sind ebenfalls kostenfrei.
+Berechnet werden nur Anpassungen, die ausschließlich Auto Naim nutzen. Ab einem Aufwand von zwei
+Stunden legt Voxaro statt einer Stundenabrechnung einen Festpreis vor.
 
 **Regulärer Listenpreis zum Vergleich:** Pro 199 € + Autohandel 99 € = 298 € / Monat, zzgl. 990 €
 Einrichtung. Der Pilotpreis von 249 € ist ein Sonderpreis für die Mitwirkung nach § 2.2 und gilt

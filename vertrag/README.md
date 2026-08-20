@@ -30,7 +30,9 @@ Welche Stellen der alten AGB nachgezogen werden sollten, steht in `naim/00-Pruef
 
 ## Offen
 
-- Stundensatz für individuelle Anpassungen festlegen (§ 3.2)
+- ~~Stundensatz festlegen~~ ✅ 95 € netto — Begründung in `naim/04-Preise-und-Stundensatz.md`
+- **Malik auf einen Preis bringen**, bevor Naim unterschreibt (er zahlt laut `ceo.md` noch 0 €)
+- Preisangaben auf Website und in `sales.md` vereinheitlichen (99 / 145 / 199 / 249 widersprechen sich)
 - Naims Firmierung, Adresse, USt-IdNr. und Unterzeichner eintragen
 - Denselben Satz für **Auto Malik** erstellen — dort ohne die Autohandel-Paragrafen
 - Impressum und Datenschutzerklärung auf der Landingpage sind noch leere Links
