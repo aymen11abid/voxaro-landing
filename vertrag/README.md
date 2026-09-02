@@ -19,6 +19,7 @@ Anbieter: **Aymen Abid — Voxaro**, Noackstraße 17 A, 64285 Darmstadt.
 | [`naim/09-Warum-keine-Schenkung.md`](naim/09-Warum-keine-Schenkung.md) | Warum das Fahrzeug keine Schenkung sein kann — und was den Kunden das kosten würde |
 | [`naim/10-Ist-das-nur-fuer-Naim.md`](naim/10-Ist-das-nur-fuer-Naim.md) | **Produkt oder Auftragsarbeit?** Befund aus dem Code + Test in einer Woche |
 | [`naim/11-Arbeitsmodell-benennen.md`](naim/11-Arbeitsmodell-benennen.md) | Wie das Arbeitsmodell heißt: Design-Partner statt Individualentwicklung |
+| [`naim/12-Verlaengerte-Werkbank.md`](naim/12-Verlaengerte-Werkbank.md) | Wenn der Kunde die Lösungen vorgibt: Problemraum vs. Lösungsraum, Malik-Test |
 
 ## Allgemeine Vorlage (für weitere Kunden)
 
