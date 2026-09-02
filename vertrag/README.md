@@ -17,6 +17,7 @@ Anbieter: **Aymen Abid — Voxaro**, Noackstraße 17 A, 64285 Darmstadt.
 | [`naim/07-Preisbegruendung.md`](naim/07-Preisbegruendung.md) | Herleitung der 34.900 € aus dem gemessenen Umfang + Gesprächsleitfaden für Naim |
 | [`naim/08-Tausch-gegen-Fahrzeug.md`](naim/08-Tausch-gegen-Fahrzeug.md) | Bezahlung ganz oder teilweise in einem Fahrzeug — Steuerfallen und Empfehlung |
 | [`naim/09-Warum-keine-Schenkung.md`](naim/09-Warum-keine-Schenkung.md) | Warum das Fahrzeug keine Schenkung sein kann — und was den Kunden das kosten würde |
+| [`naim/10-Ist-das-nur-fuer-Naim.md`](naim/10-Ist-das-nur-fuer-Naim.md) | **Produkt oder Auftragsarbeit?** Befund aus dem Code + Test in einer Woche |
 
 ## Allgemeine Vorlage (für weitere Kunden)
 
