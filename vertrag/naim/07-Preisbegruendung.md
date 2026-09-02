@@ -109,3 +109,63 @@ Nicht den Preis senken — den **Umfang** ändern. Diese Leiter in dieser Reihen
 Stufe 2 ist die stärkste Antwort auf „zu teuer", weil sie sein eigentliches Motiv trifft: Er will
 meist nicht den Code — er will die Sicherheit, nicht von dir abhängig zu sein. Die bekommt er
 über den Treuhänder für die Hälfte.
+
+---
+
+## 6 · „Ich habe noch keine Kunden — sind 29.000 € realistisch?"
+
+**Teilweise ja.** Aber das Problem ist nicht die Zahl, sondern das **Vertrauen**. Und dagegen
+hilft kein Rabatt, sondern weniger Risiko für den Käufer.
+
+### Was gegen den Preis spricht
+
+- **Kein Nachweis.** Naim kauft von jemandem, der noch keinen einzigen Kunden ausgeliefert und
+  über Jahre betreut hat. Die 24 Monate Gewährleistung sind exakt so viel wert wie die
+  Wahrscheinlichkeit, dass es dich in 24 Monaten noch gibt. Das denkt er, auch wenn er es nicht sagt.
+- **Die Software ist noch im Pilotbetrieb.** Sie wird gerade erst im Alltag erprobt. Etwas als
+  fertiges 35.000-€-Produkt zu verkaufen, das noch täglich Änderungen bekommt, lädt zu genau den
+  Gewährleistungsdiskussionen ein, die du dir nicht leisten kannst.
+- **Du bist allein.** Ein Werkvertrag über 35.000 € mit zwei Jahren kostenloser Nachbesserung ist
+  für einen Einzelnen ein erhebliches Risiko — vor allem parallel zum Aufbau des Produkts.
+
+### Was für den Preis spricht
+
+Naim ist **kein kleiner Betrieb**. Aus deinen eigenen Vor-Ort-Notizen: Fahrzeugankauf in Serie,
+eigene Speditionsrouten, Sammelvollmachten für mehrere Fahrzeuge, ein gepflegter Bestand in Excel.
+Wer Fahrzeuge routenweise einkauft, bewegt Beträge, neben denen 35.000 € kein Sonderfall sind.
+Er kauft ständig Autos in dieser Größenordnung.
+
+**Das Geld ist also nicht das Problem — die Sicherheit ist es.**
+
+### Die richtige Antwort: nicht billiger, sondern risikoärmer
+
+| Instrument | Wirkung |
+|---|---|
+| **Mietkauf** — 349 € / Monat, und bei Kauf innerhalb von 12 Monaten wird **jeder gezahlte Euro voll angerechnet** (bis 4.188 €) | Er testet ohne Risiko, du bekommst sofort Umsatz und einen Referenzkunden. Der Preis bleibt bei 34.900 € |
+| **Meilensteine statt 50/50** — 30 % bei Auftrag, 40 % bei Abnahme, 30 % nach 60 Tagen störungsfreiem Betrieb | Er zahlt den größten Teil erst, wenn es nachweislich läuft |
+| **Escrow** | Löst genau die Sorge „was, wenn es ihn nicht mehr gibt" |
+| **Rücktrittsrecht bei gescheiterter Abnahme** — Anzahlung zurück, wenn das Pflichtenheft nicht erfüllt wird | Kostet dich nichts, wenn du lieferst |
+
+**Der Mietkauf ist die beste Antwort auf „du hast ja noch keine Kunden".** Er dreht das Argument
+um: Statt dass Naim dir Vertrauen vorschießt, beweist du es ihm zwölf Monate lang — und wenn er
+danach kauft, zahlt er den vollen Preis, weil er dann weiß, dass es funktioniert.
+
+### Der Punkt, der wichtiger ist als der Preis
+
+Dein erster Kunde ist nicht dazu da, dich zu finanzieren, sondern dich zu **beweisen**. Verkaufst
+du den Quellcode, bevor du einen zweiten zahlenden Kunden hast, verkaufst du nicht ein Produkt,
+sondern das Unternehmen — und du hast danach keine Referenz, mit der du Kunden 2 bis 15 gewinnst.
+
+Zum Vergleich, aus deinem eigenen `ceo`-Brief: Break-even liegt bei etwa 15 Kunden. Fünfzehn
+Kunden zu 249 € sind **44.800 € im Jahr, jedes Jahr**. Der Verkauf an Naim bringt 34.900 € genau
+einmal.
+
+### Entscheidungsregel
+
+- **Du brauchst das Geld in den nächsten sechs Monaten zum Überleben** → verkaufen, aber
+  **ohne Quellcode** (17.900 €) oder in Raten. Den Code gibst du nicht für Liquidität her.
+- **Du willst Werkano aufbauen** → Mietkauf anbieten, 349 € im Monat, Kaufoption offen halten.
+  Wenn Naim nach zwölf Monaten kauft, hast du beides gehabt: Referenz und Kaufpreis.
+- **Naim besteht auf sofortigem Kauf mit Code** → 34.900 € mit Meilensteinen. Unter 29.000 € nur,
+  wenn er im Gegenzug etwas gibt, das dir hilft: schriftliche Referenz, zwei Empfehlungen an
+  andere Händler, Nutzung als Fallbeispiel.
