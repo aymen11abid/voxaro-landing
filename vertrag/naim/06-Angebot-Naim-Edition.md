@@ -33,10 +33,12 @@ Software weiterentwickeln, und es besteht keine laufende Bindung an Werkano.
 **Bei vollständiger Vorauszahlung: 5 % Nachlass → 33.155 €.**
 Die Rechte am Quellcode gehen erst mit vollständiger Zahlung über.
 
-> **Zur Einordnung:** Eine Neuentwicklung dieses Umfangs — Werkstattverwaltung, Einkaufs-Pipeline,
-> Fahrzeugbestand, Dokumentenerstellung, Rechnungswesen und KI-Telefonie — liegt bei einem
-> Entwicklungsdienstleister erfahrungsgemäß bei 80.000 bis 150.000 € und dauert sechs bis zwölf
-> Monate. Hier wird eine fertige, im Betrieb erprobte Lösung übergeben.
+> **Zur Einordnung:** Übergeben werden 36 Programmbereiche, 91 Schnittstellen, 37
+> Datenbank-Erweiterungen und rund 35.000 Zeilen Anwendungscode — Werkstattverwaltung,
+> Einkaufs-Pipeline, Fahrzeugbestand, Dokumentenerstellung, Rechnungswesen und KI-Telefonie.
+> Eine Neuentwicklung dieses Umfangs liegt bei einem Entwicklungsdienstleister bei **60.000 bis
+> 100.000 €** und dauert sechs bis zwölf Monate. Hier wird eine fertige, im Betrieb erprobte
+> Lösung übergeben.
 
 ## 2 · Was Auto Naim mit dem Quellcode darf
 

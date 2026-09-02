@@ -211,7 +211,7 @@ entsprechend gefasst.
 
 | Ankerpunkt | Betrag |
 |---|---|
-| Nachbau durch einen Dienstleister (6–12 Monate) | 80.000–150.000 € |
+| Nachbau durch einen Dienstleister (6–12 Monate) | 60.000–100.000 € (gemessen, siehe 07) |
 | Fünf Jahre Abo inklusive Wartung, das entfällt | ~23.800 € |
 | Lizenz ohne Quellcode (voriges Modell) | 17.900 € |
 | **Verkauf mit Quellcode** | **34.900 €** |
