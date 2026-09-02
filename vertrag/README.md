@@ -20,6 +20,7 @@ Anbieter: **Aymen Abid — Voxaro**, Noackstraße 17 A, 64285 Darmstadt.
 | [`naim/10-Ist-das-nur-fuer-Naim.md`](naim/10-Ist-das-nur-fuer-Naim.md) | **Produkt oder Auftragsarbeit?** Befund aus dem Code + Test in einer Woche |
 | [`naim/11-Arbeitsmodell-benennen.md`](naim/11-Arbeitsmodell-benennen.md) | Wie das Arbeitsmodell heißt: Design-Partner statt Individualentwicklung |
 | [`naim/12-Verlaengerte-Werkbank.md`](naim/12-Verlaengerte-Werkbank.md) | Wenn der Kunde die Lösungen vorgibt: Problemraum vs. Lösungsraum, Malik-Test |
+| [`naim/13-Auftragsentwicklung-abrechnen.md`](naim/13-Auftragsentwicklung-abrechnen.md) | **Abrechnung als Auftragsentwicklung** — Bausteinpreise aus dem Technik-Plan, 13.300 € |
 
 ## Allgemeine Vorlage (für weitere Kunden)
 
