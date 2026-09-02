@@ -120,3 +120,65 @@ Und ein Nebeneffekt, der dir hilft: Ein Fahrzeug als Teil der Vergütung senkt f
 gefühlte Höhe des Preises erheblich, ohne dass du beim Preis nachgibst. Aus „34.900 € bezahlen"
 wird „ein Auto aus dem Bestand plus 19.900 €". Das ist psychologisch ein völlig anderes Geschäft —
 bei gleichem Wert für dich.
+
+---
+
+## 6 · Konkret: Das Fahrzeug ist 30.000 € wert
+
+Zwei Fragen dahinter, die man auseinanderhalten muss: **Welchen Wert setzt ihr an** — und
+**wie viel Bargeld bleibt dir**.
+
+### Frage 1: 30.000 € sind welcher Wert?
+
+Wenn Naim sagt „das Auto ist 30.000 wert", meint er in aller Regel seinen **Verkaufspreis** — den
+Preis im Schaufenster. Eingekauft hat er es typischerweise 15–20 % darunter, also bei etwa
+**25.000–26.000 €**.
+
+Für dich zählt der Wiederverkaufswert: Du bist kein Händler, du verkaufst privat und bekommst
+höchstens den Händlereinkaufswert. Nimmst du das Fahrzeug zu 30.000 € an, bezahlst du seine
+Handelsspanne — rund 5.000 € — aus eigener Tasche.
+
+**Der Satz für das Gespräch:**
+
+> „30.000 € ist dein Verkaufspreis. Wenn ich es weiterverkaufe, bekomme ich den Einkaufswert.
+> Rechnen wir es zum Schwacke-Händlereinkauf an, dann ist es für uns beide fair — du gibst keinen
+> Gewinn her, und ich zahle keinen Aufschlag."
+
+Er arbeitet ohnehin mit Schwacke, die Zahl liegt bei ihm auf dem Tisch.
+
+### Frage 2: Wie viel Bargeld bleibt für die Steuer?
+
+Auf den vollen Auftragswert fällt Einkommensteuer an — je nach übrigem Einkommen grob
+**10.000–14.000 €** bei 34.900 € Gewinn, zahlbar in Geld. (Gewerbesteuer fällt wegen des
+Freibetrags von 24.500 € kaum ins Gewicht und wird weitgehend angerechnet.)
+
+| Variante | Fahrzeug | Bargeld | Reicht das für die Steuer? |
+|---|---|---|---|
+| **A — empfohlen** | 25.000 € (Einkaufswert) | **9.900 €** | knapp, aber tragbar |
+| B | 30.000 € (Verkaufspreis) | 4.900 € | **nein** — du müsstest das Auto verkaufen, um deine Steuer zu zahlen |
+| C | 30.000 € als Gesamtpreis | 0 € | **nein** — und du liegst nur 1.000 € über deiner Untergrenze |
+
+**Variante A ist der Vorschlag:** Fahrzeug zum Händlereinkaufswert von etwa 25.000 €, dazu
+9.900 € in Geld, zusammen die vereinbarten 34.900 €.
+
+### Die Rechnungen dazu
+
+| | Netto | USt | Brutto |
+|---|---|---|---|
+| Deine Rechnung an Naim (Software) | 34.900 € | 6.631 € | 41.531 € |
+| Naims Rechnung an dich (Fahrzeug, regelbesteuert) | 25.000 € | 4.750 € | 29.750 € |
+| **Naim überweist dir die Differenz** | | | **11.781 €** |
+
+Deine Umsatzsteuer-Zahllast daraus: 6.631 € abzüglich 4.750 € Vorsteuer = **1.881 €** ans
+Finanzamt. Zusammen mit den 11.781 € Zufluss bleibt genug für Umsatz- und Einkommensteuer.
+
+**Voraussetzung bleibt:** regelbesteuertes Fahrzeug mit ausgewiesener Umsatzsteuer. Bei
+Differenzbesteuerung nach § 25a UStG entfällt dein Vorsteuerabzug von 4.750 € ersatzlos — dann
+musst du entweder ein anderes Fahrzeug nehmen oder 4.750 € mehr in Geld verlangen.
+
+### Und der Wert muss echt sein
+
+Auf beiden Rechnungen muss der Betrag stehen, der dem tatsächlichen Wert entspricht. Ein Fahrzeug
+mit 25.000 € Wert auf 34.900 € hochzuschreiben, damit es „aufgeht", ist eine unrichtige Rechnung —
+mit denselben Folgen wie in `09-Warum-keine-Schenkung.md`. Der Differenzbetrag wird schlicht
+überwiesen, dann stimmt alles.
