@@ -198,3 +198,62 @@ geschenkt. Für Naim rechnet es sich trotzdem klar: Er zahlt über fünf Jahre 1
   beauftragter Entwicklung auf personenbezogene Daten zugreifst.
 - **Anlage 2 aus dem Pilotvertrag passt nicht mehr** — die Unterauftragsverarbeiter dort sind
   jetzt Naims eigene Vertragspartner. Der AVV muss für dieses Modell neu geschrieben werden.
+
+---
+
+## 8 · Nachtrag 2: Verkauf **mit** Quellcode — 34.900 €
+
+Entschieden: Naim bekommt den Quellcode. Damit wird nicht mehr die Nutzung verkauft, sondern das
+Werk selbst. Das Angebot in [`06-Angebot-Naim-Edition.md`](06-Angebot-Naim-Edition.md) ist
+entsprechend gefasst.
+
+### Woher der Preis kommt
+
+| Ankerpunkt | Betrag |
+|---|---|
+| Nachbau durch einen Dienstleister (6–12 Monate) | 80.000–150.000 € |
+| Fünf Jahre Abo inklusive Wartung, das entfällt | ~23.800 € |
+| Lizenz ohne Quellcode (voriges Modell) | 17.900 € |
+| **Verkauf mit Quellcode** | **34.900 €** |
+
+Das ist rund das Doppelte der reinen Nutzungslizenz und für Naim gegenüber einem Nachbau immer
+noch ein Bruchteil. **Verhandlungsuntergrenze: 29.000 €.** Darunter verkaufst du dein Produkt
+unter dem Wert von fünf Jahren Abo — und diesmal gibst du es endgültig aus der Hand.
+
+### Die fünf Klauseln, an denen alles hängt
+
+1. **Einfaches, nicht ausschließliches Recht.** Der wichtigste Satz des ganzen Geschäfts. Würdest
+   du ein ausschließliches Recht einräumen, dürftest du **denselben Code nicht mehr für Werkano
+   verwenden** — dein Produkt wäre weg. Im Angebot steht deshalb ausdrücklich, dass du weiter an
+   beliebig viele andere Betriebe lizenzieren darfst, auch an Wettbewerber von Naim. Übertragen
+   wird ohnehin nur ein Nutzungsrecht: Das Urheberrecht selbst ist nach § 29 UrhG nicht übertragbar.
+2. **Weitergabeverbot mit Vertragsstrafe von 25.000 €.** Ein Verbot ohne Vertragsstrafe ist
+   praktisch wertlos, weil du im Streit den Schaden beziffern müsstest — was bei Software kaum
+   gelingt. Die Höhe muss angemessen sein; 25.000 € bei 34.900 € Kaufpreis ist vertretbar,
+   100.000 € wären angreifbar.
+3. **Gewährleistung entfällt für geänderte Teile.** Ohne diesen Satz haftest du 24 Monate für
+   Fehler, die ein fremder Entwickler eingebaut hat.
+4. **Open-Source-Bestandteile.** Der Code enthält Fremdbibliotheken. Du kannst daran keine Rechte
+   einräumen, die du selbst nicht hast — das muss dastehen, sonst versprichst du etwas Unmögliches.
+5. **Geschäftsgeheimnis-Kennzeichnung.** Schutz nach dem Geschäftsgeheimnisgesetz gibt es nur bei
+   „angemessenen Geheimhaltungsmaßnahmen". Die Kennzeichnung im Vertrag plus die Pflicht, eigene
+   Entwickler schriftlich zu verpflichten, ist genau diese Maßnahme.
+
+### Drei praktische Punkte, die leicht untergehen
+
+- **Übergabe ohne Git-Historie.** Ein sauberer Code-Export, kein Repository-Fork. Die Historie
+  enthält deine gesamte Werkano-Entwicklung, Spuren anderer Kunden — Malik steht namentlich in
+  alten Commits — und deine Arbeitsweise. Das gehört nicht mit übergeben.
+- **Zahlung vor Übergabe.** Zweite Rate **vor** der Quellcode-Übergabe, nicht danach. Ist der Code
+  einmal draußen, hast du kein Druckmittel mehr. Im Angebot steht zusätzlich, dass die Rechte erst
+  mit vollständiger Zahlung übergehen.
+- **Steuern.** 34.900 € in einem Jahr sind ein Einkommenssprung. Kläre mit deinem Steuerberater,
+  ob eine Aufteilung über den Jahreswechsel (Anzahlung im einen, Schlusszahlung im anderen Jahr)
+  sinnvoll ist — das ist bei einem Werkvertrag gestaltbar, aber nur vorher.
+
+### Was danach realistisch übrig bleibt
+
+Nach der Übergabe hast du kein Druckmittel mehr: keinen Hosting-Zugang, keinen Code-Vorsprung,
+keine Abhängigkeit. Naim kann jeden günstigeren Entwickler beauftragen. Kalkuliere die 95 €/Stunde
+danach **nicht** als eingeplanten Umsatz ein — was kommt, ist Zugabe. Der Kaufpreis muss sich für
+sich allein rechnen. Genau deshalb 34.900 € und nicht 20.000 €.

@@ -1,4 +1,4 @@
-# Angebot — Naim-Edition
+# Angebot — Naim-Edition mit Quellcode
 
 **Aymen Abid · Werkano**
 Noackstraße 17 A · 64285 Darmstadt
@@ -12,132 +12,136 @@ aymen11abid@gmail.com · +49 176 21756323
 ## Worum es geht
 
 Auto Naim erhält eine **eigene, auf den Betrieb zugeschnittene Software-Lösung** auf Basis von
-Werkano — mit eigenem Namen, eigener Datenbank und den Abläufen von Auto Naim als Standard.
-
-Die Lösung wird **einmalig gekauft**, nicht gemietet. Sie läuft auf **Konten, die Auto Naim
-gehören**; alle laufenden Kosten für Server, Telefonie und Sprach-KI gehen direkt an die jeweiligen
-Anbieter. Werkano stellt keine laufenden Leistungen in Rechnung. Weiterentwicklungen erfolgen
-ausschließlich auf Wunsch von Auto Naim und nach Beauftragung.
+Werkano — einschließlich **Quellcode und Dokumentation**. Die Lösung läuft auf Konten, die Auto
+Naim gehören. Nach der Übergabe ist Auto Naim vollständig unabhängig: Jeder Entwickler kann die
+Software weiterentwickeln, und es besteht keine laufende Bindung an Werkano.
 
 ## 1 · Einmalige Positionen
 
 | Position | Netto |
 |---|---|
-| **Nutzungslizenz Naim-Edition** — unbefristetes Recht zur Nutzung im eigenen Betrieb, Stand der Abnahme | **17.900 €** |
+| **Naim-Edition mit Quellcode** — Software im Stand der Abnahme, Programmcode, Datenbankschema, Betriebsdokumentation, unbefristetes Nutzungs- und Bearbeitungsrecht für den eigenen Betrieb | **34.900 €** |
 | Einrichtung, Datenübernahme (Bestandsliste, Kunden, Fahrzeuge), Schulung | inklusive |
 | Eigenes Branding: Name, Logo, Farben in der Oberfläche | inklusive |
-| **Einrichtung aller Anbieter-Konten auf den Namen von Auto Naim** (Server, Datenbank, Telefonie, Sprach-KI) inkl. Übergabe der Zugangsdaten | inklusive |
+| Einrichtung aller Anbieter-Konten auf den Namen von Auto Naim inkl. Zugangsdaten | inklusive |
+| Konfiguration des KI-Telefonassistenten inkl. Gesprächsvorlagen | inklusive |
+| Übergabetermin mit technischer Einweisung (1 Tag) | inklusive |
 | Abnahmetest und Abnahmeprotokoll | inklusive |
-| **Summe einmalig** | **17.900 €** |
+| **Summe einmalig** | **34.900 €** |
 
-**Zahlung:** 50 % bei Auftragserteilung, 50 % bei Abnahme.
-**Bei vollständiger Vorauszahlung: 5 % Nachlass → 17.005 €.**
+**Zahlung:** 50 % bei Auftragserteilung, 50 % vor Übergabe des Quellcodes.
+**Bei vollständiger Vorauszahlung: 5 % Nachlass → 33.155 €.**
+Die Rechte am Quellcode gehen erst mit vollständiger Zahlung über.
 
-## 2 · Laufende Kosten — direkt bei den Anbietern
+> **Zur Einordnung:** Eine Neuentwicklung dieses Umfangs — Werkstattverwaltung, Einkaufs-Pipeline,
+> Fahrzeugbestand, Dokumentenerstellung, Rechnungswesen und KI-Telefonie — liegt bei einem
+> Entwicklungsdienstleister erfahrungsgemäß bei 80.000 bis 150.000 € und dauert sechs bis zwölf
+> Monate. Hier wird eine fertige, im Betrieb erprobte Lösung übergeben.
 
-Auto Naim ist Vertragspartner der folgenden Anbieter und zahlt dort direkt. Werkano berechnet
-hierfür nichts und legt nichts aus.
+## 2 · Was Auto Naim mit dem Quellcode darf
+
+- Die Software **im eigenen Betrieb nutzen**, unbefristet, ohne Stückzahl- oder Nutzerbegrenzung
+- Den Quellcode **selbst ändern oder durch beliebige Dritte ändern lassen**
+- Die Software auf beliebigen eigenen Servern betreiben
+- Sicherungskopien erstellen
+
+## 3 · Was nicht erlaubt ist
+
+- **Weitergabe an Dritte** — verkaufen, vermieten, verleihen, verschenken oder als Dienstleistung
+  für andere Betriebe anbieten, auch nicht unentgeltlich und auch nicht an verbundene Unternehmen
+- **Veröffentlichung** des Quellcodes oder von Teilen davon
+- Nutzung der Bezeichnung **„Werkano"** oder des Werkano-Logos außerhalb der eigenen Installation
+
+Für jeden Fall der Zuwiderhandlung wird eine **Vertragsstrafe von 25.000 €** vereinbart; weiter
+gehende Schadensersatzansprüche bleiben unberührt.
+
+Der Quellcode und die Gesprächsvorlagen des KI-Assistenten sind **Geschäftsgeheimnisse** im Sinne
+des Geschäftsgeheimnisgesetzes. Auto Naim behandelt sie vertraulich und gibt sie nur an
+Entwickler weiter, die zuvor schriftlich zur Vertraulichkeit verpflichtet wurden.
+
+## 4 · Was Werkano behält
+
+Werkano bleibt Urheber der Software und darf denselben Programmcode uneingeschränkt weiter nutzen,
+weiterentwickeln und an beliebig viele andere Betriebe lizenzieren — auch an Wettbewerber von
+Auto Naim. Auto Naim erhält ein **einfaches, nicht ausschließliches** Recht; ein Exklusiv- oder
+Alleinrecht wird ausdrücklich nicht eingeräumt.
+
+## 5 · Laufende Kosten — direkt bei den Anbietern
+
+Auto Naim ist Vertragspartner der Anbieter und zahlt dort direkt. Werkano berechnet nichts und
+legt nichts aus.
 
 | Anbieter | Wofür | ungefähr / Monat |
 |---|---|---|
-| Supabase (Plan mit Datensicherung) | Datenbank, Backups | ~25 $ |
+| Supabase (Tarif mit Datensicherung) | Datenbank, Backups | ~25 $ |
 | Vercel | Betrieb der Oberfläche | ~20 $ |
 | Twilio | Rufnummer und Gesprächsminuten | ~1 $ + Verbrauch |
 | Vapi | Sprach-Orchestrierung des Assistenten | ~0,05 $ je Gesprächsminute |
 | ElevenLabs | Stimme des Assistenten | ~5–22 $ |
 | **Größenordnung gesamt** | | **ca. 50–80 € je nach Anrufaufkommen** |
 
-> **Zwei Punkte, die dazugehören:**
-> **Datensicherung.** Der kostenlose Supabase-Tarif enthält keine verlässlichen Backups. Auto Naim
-> bucht deshalb einen Tarif mit Datensicherung. Ohne diesen Tarif gibt es im Schadensfall nichts
-> wiederherzustellen — dafür kann Werkano nicht einstehen.
-> **Zahlungsausfall.** Bleibt eine Zahlung bei einem der Anbieter offen, wird der jeweilige Dienst
-> abgeschaltet — beim Telefonie-Anbieter bedeutet das: Anrufe kommen nicht mehr an. Die
-> Zahlungsfähigkeit der Konten liegt bei Auto Naim.
+Der kostenlose Supabase-Tarif enthält keine verlässlichen Backups; ein Tarif mit Datensicherung
+ist Voraussetzung. Bleibt eine Zahlung bei einem Anbieter offen, wird der Dienst abgeschaltet —
+beim Telefonie-Anbieter heißt das: Anrufe kommen nicht mehr an.
 
-## 3 · Entwicklung und Arbeiten auf Wunsch
+## 6 · Gewährleistung
+
+**24 Monate ab Abnahme.** Was nicht so funktioniert wie im Pflichtenheft beschrieben, wird
+kostenlos in Ordnung gebracht.
+
+Sobald der Quellcode von Auto Naim oder von Dritten verändert wird, entfällt die Gewährleistung
+für die veränderten Programmteile sowie für Mängel, die auf diesen Änderungen beruhen. Der übrige
+Teil bleibt davon unberührt.
+
+Die Software enthält Bestandteile Dritter unter Open-Source-Lizenzen (unter anderem Next.js und
+das Supabase-SDK). Für diese gelten die jeweiligen Lizenzbedingungen; Werkano kann daran keine
+weitergehenden Rechte einräumen und steht für ihren Fortbestand nicht ein.
+
+## 7 · Weiterarbeit nach der Übergabe — optional
 
 | Position | Netto |
 |---|---|
-| Stundensatz | **95 € / Stunde**, Mindestabnahme 1 Stunde |
+| Entwicklung auf Wunsch | 95 € / Stunde, Mindestabnahme 1 Stunde |
 | Tagessatz (8 Stunden) | 690 € |
-| Ab 2 Stunden Aufwand | Festpreis-Angebot vorab statt Stundenabrechnung |
+| Ab 2 Stunden Aufwand | Festpreis-Angebot vorab |
 | Eilzuschlag bei Umsetzung in weniger als 5 Werktagen | + 50 % |
-| Kontingent — 4 Stunden im Monat, im Voraus, 12 Monate gültig | 340 € / Monat (= 85 € / Std.) |
+| Sicherheitspauschale — Updates, Überwachung, Kontrolle der Datensicherung | 79 € / Monat |
 
-Jede Arbeit wird vorher in Textform angeboten und erst nach Freigabe begonnen. Ohne Freigabe
-entstehen keine Kosten. Das gilt auch für Störungen, die kein Gewährleistungsfall nach Ziffer 5 sind.
+Auto Naim ist zu nichts davon verpflichtet und kann jeden anderen Entwickler beauftragen.
 
-## 4 · Empfohlener Zusatz: Sicherheitspauschale 79 € / Monat
+> **Hinweis zur Sicherheit:** Wird die Sicherheitspauschale nicht gebucht und auch kein anderer
+> Dienstleister damit beauftragt, spielt niemand Sicherheitsaktualisierungen ein. Da die Software
+> personenbezogene Daten verarbeitet, verlangt Art. 32 DSGVO den Stand der Technik. Die
+> Verantwortung dafür liegt nach der Übergabe bei Auto Naim.
 
-**Optional, aber dringend empfohlen.** Enthalten: Einspielen von Sicherheitsaktualisierungen,
-Überwachung der Erreichbarkeit, Kontrolle der Datensicherung, eine Rückmeldung je Monat.
+## 8 · Datenschutz
 
-Ohne diese Position spielt niemand Sicherheitsupdates ein. Da die Lösung personenbezogene Daten
-von Kunden, Fahrzeugverkäufern und Mitarbeitern verarbeitet, verlangt Art. 32 DSGVO den Stand der
-Technik — die Verantwortung dafür liegt dann vollständig bei Auto Naim. Wird die Pauschale nicht
-gebucht, hält Werkano das im Vertrag ausdrücklich fest.
+Weil die Konten Auto Naim gehören, schließt **Auto Naim die Auftragsverarbeitungsverträge mit
+Supabase, Twilio, Vapi, ElevenLabs und Vercel selbst ab** (Art. 28 DSGVO). Werkano stellt die
+Vorlagen und Links bereit.
 
-## 5 · Was enthalten ist — und was nicht
+Für Zugriffe von Werkano im Rahmen der Gewährleistung oder beauftragter Arbeiten wird ein
+schlanker Auftragsverarbeitungsvertrag zwischen Auto Naim und Werkano geschlossen.
 
-**Enthalten**
+Die Ansage zu Gesprächsbeginn (Hinweis auf den KI-Assistenten, Art. 50 KI-VO) bleibt Pflicht.
 
-- Alle Funktionen im Stand der Abnahme: Aufträge, Kalender, Kunden- und Fahrzeugakten,
-  Leistungskatalog, Angebote und Rechnungen, Einkaufs-Pipeline, Fahrzeugbestand,
-  Kaufvertrag-Erfassung per Foto, Eingangs-Check, Sammelvollmacht, Abholplanung
-- Der KI-Telefonassistent, eingerichtet und auf die Abläufe von Auto Naim abgestimmt
-- **24 Monate Gewährleistung ab Abnahme:** Was nicht so funktioniert wie im Pflichtenheft
-  beschrieben, wird kostenlos in Ordnung gebracht. Auto Naim hält dafür den Zugang zu den Konten
-  offen; ohne Zugang ruht die Gewährleistung.
+## 9 · Nicht enthalten
 
-**Nicht enthalten**
+- Funktionsupdates aus der Werkano-Produktentwicklung
+- Gesetzliche Anpassungen, etwa die **E-Rechnungspflicht ab 1.1.2027 / 1.1.2028**
+- Laufender Betrieb, Hosting und Anbieterkosten
+- Lizenzen und Daten Dritter (Schwacke, mobile.de, AutoScout24)
+- Eine Verfügbarkeitszusage wird nicht gegeben
 
-- **Laufender Betrieb.** Server, Telefonie und Sprach-KI laufen auf Konten von Auto Naim, der
-  dort selbst Vertragspartner ist und zahlt.
-- **Funktionsupdates aus der Werkano-Produktentwicklung.** Neue Funktionen, die Werkano für
-  andere Betriebe baut, fließen nicht ein. Übernahme jederzeit möglich gegen Aufwand nach Ziffer 3.
-- Gesetzliche Anpassungen (z. B. die **E-Rechnungspflicht ab 1.1.2027 / 1.1.2028**). Sie gelten als
-  Änderungswunsch, nicht als Mangel, und werden rechtzeitig als Festpreis angeboten.
-- Quellcode. Auf Wunsch Hinterlegung bei einem Treuhänder (Ziffer 6).
-- Lizenzen und Daten Dritter (Schwacke, mobile.de, AutoScout24).
+## 10 · Rechtliche Grundlage
 
-## 6 · Datenschutz — was Auto Naim selbst übernehmen muss
-
-Weil die Konten Auto Naim gehören, ist Auto Naim gegenüber den Anbietern selbst verantwortlich:
-
-- **Auto Naim schließt die Auftragsverarbeitungsverträge mit Supabase, Twilio, Vapi, ElevenLabs
-  und Vercel selbst ab** (Art. 28 DSGVO). Werkano stellt die Vorlagen und Links dazu bereit; das
-  Abschließen und Aufbewahren übernimmt Auto Naim.
-- Für den Zugriff von Werkano auf die Daten — im Rahmen von Gewährleistung, Sicherheitspauschale
-  oder beauftragter Entwicklung — wird ein schlanker **Auftragsverarbeitungsvertrag zwischen
-  Auto Naim und Werkano** geschlossen.
-- Die Ansage zu Gesprächsbeginn (Hinweis auf den KI-Assistenten, Art. 50 KI-VO) bleibt Pflicht
-  und darf nicht deaktiviert werden.
-
-## 7 · Zwei Zusätze, die sinnvoll sind
-
-**Quellcode-Hinterlegung (Escrow) — ca. 400 € / Jahr, Kosten trägt Auto Naim.**
-Der Programmcode liegt bei einem neutralen Treuhänder und wird an Auto Naim herausgegeben, wenn
-Werkano den Betrieb einstellt oder insolvent wird. Auto Naim ist damit unabhängig, ohne dass der
-Code heute die Hand wechselt.
-
-**Rückkehr auf die aktuelle Werkano-Version.** Ein Wechsel ist jederzeit möglich: Datenübernahme
-nach Aufwand, danach das dann gültige Monatsentgelt. Die einmalige Lizenz wird zu 50 % auf die
-ersten Monatsentgelte angerechnet.
-
-## 8 · Rechtliche Grundlage
-
-Grundlage sind der **Werkvertrag Naim-Edition** mit Leistungsbeschreibung (Pflichtenheft) und
-Abnahmeprotokoll sowie der **Auftragsverarbeitungsvertrag** nach Ziffer 6. Auto Naim erhält ein
-einfaches, nicht ausschließliches, unbefristetes Nutzungsrecht für den eigenen Betrieb. Die
-Urheberrechte an der Software verbleiben bei Aymen Abid.
-
-Eine Verfügbarkeitszusage wird nicht gegeben, da der Betrieb auf Konten von Auto Naim erfolgt und
-außerhalb des Einflussbereichs von Werkano liegt.
+Werkvertrag mit Leistungsbeschreibung (Pflichtenheft), Abnahmeprotokoll, Lizenz- und
+Geheimhaltungsvereinbarung sowie Auftragsverarbeitungsvertrag nach Ziffer 8. Deutsches Recht,
+Gerichtsstand Darmstadt.
 
 ---
 
-**Gesamt im ersten Jahr:** 17.900 € an Werkano, zzgl. gesetzlicher Umsatzsteuer.
+**Gesamt:** 34.900 € netto, zzgl. gesetzlicher Umsatzsteuer.
 Dazu die eigenen Anbieterkosten von etwa 600–960 € im Jahr, direkt gezahlt.
 
 <br>
