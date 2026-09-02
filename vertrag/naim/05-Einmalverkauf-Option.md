@@ -106,3 +106,42 @@ Produkt — er bekommt alles, was er wirklich wollte.
 **Wenn er trotzdem kaufen will:** 14.900 € + 149 €/Monat Wartung, ohne Quellcode, mit
 Pflichtenheft und Abnahmeprotokoll. Unter 12.000 € lohnt es sich für dich nicht — dann sind es
 nur vier Jahre Abo, und du hast das Risiko eines Werkvertrags dazugekauft.
+
+---
+
+## 6 · Entscheidung vom 17.08.2026: Naim-Edition, eingefroren
+
+Entschieden ist der Einmalverkauf: eigene, gebrandete Version für Auto Naim, **keine
+Funktionsupdates**, Weiterentwicklung ausschließlich auf Wunsch und gegen Rechnung. Das
+kundenfertige Angebot liegt in [`06-Angebot-Naim-Edition.md`](06-Angebot-Naim-Edition.md).
+
+**Der Preis bleibt bei 14.900 €** — die Zahl enthielt nie Funktionsupdates, sondern immer nur
+den Stand bei Abnahme. „Keine Updates" ist deshalb keine Einschränkung, die einen Nachlass
+rechtfertigt, sondern die Beschreibung dessen, was ohnehin verkauft wird. Wer trotzdem einen
+Hebel in der Verhandlung braucht, nimmt die 5 % bei Vorauszahlung: Das kostet 745 € und bringt
+das Geld sofort statt in zwei Raten.
+
+**Drei Dinge, die „keine Updates" ausdrücklich nicht bedeutet:**
+
+1. **Keine Mängelbeseitigung.** Beim Werkvertrag gilt zwingend 24 Monate Gewährleistung ab
+   Abnahme. Was nicht so funktioniert wie im Pflichtenheft beschrieben, wird kostenlos
+   nachgebessert — das lässt sich vertraglich nicht abbedingen und ist im Preis enthalten.
+   Genau deshalb ist das Pflichtenheft das wichtigste Dokument des ganzen Geschäfts: Es
+   entscheidet, was „Mangel" heißt und was „Änderungswunsch" — also was kostenlos ist und was
+   95 € die Stunde kostet.
+2. **Keine Sicherheitsaktualisierungen.** Solange die Lösung auf Werkano-Servern läuft und
+   personenbezogene Daten verarbeitet, verlangt Art. 32 DSGVO den Stand der Technik. Ein
+   ungepatchtes System ist ein Datenschutzverstoß — und zwar deiner, nicht Naims. Sicherheits-
+   und Bestandspflege stecken deshalb fest in den 149 € im Monat und sind nicht abwählbar.
+3. **Kein Verzicht auf gesetzliche Anpassungen.** Die E-Rechnungspflicht kommt zum
+   1.1.2027 bzw. 1.1.2028. Sie ist im Angebot ausdrücklich als kostenpflichtiger
+   Änderungswunsch eingeordnet, mit rechtzeitigem Festpreis-Angebot. Ohne diesen Satz landet
+   die Diskussion in zwei Jahren bei „das muss doch enthalten sein".
+
+**Was jetzt noch fehlt, bevor unterschrieben wird:**
+
+- **Pflichtenheft** — die Liste dessen, was die Lösung bei Abnahme können muss. Ohne sie ist
+  die 24-monatige Gewährleistung ein offenes Fass.
+- **Werkvertrag Naim-Edition** — ersetzt den Pilot-Nutzungsvertrag, weil aus Miete jetzt Werkvertrag wird.
+- **Abnahmeprotokoll** — ein Blatt, das beide unterschreiben. Ab diesem Datum laufen die 24 Monate.
+- Der **AVV** aus Anlage 2 gilt unverändert weiter, da du weiterhin hostest.

@@ -12,7 +12,8 @@ Anbieter: **Aymen Abid — Voxaro**, Noackstraße 17 A, 64285 Darmstadt.
 | [`naim/02-Anlage-1-Leistung-und-Preise-Naim.md`](naim/02-Anlage-1-Leistung-und-Preise-Naim.md) | Preisblatt — **Konditionen vor dem Druck bestätigen** |
 | [`naim/03-Anlage-2-AVV-Naim.md`](naim/03-Anlage-2-AVV-Naim.md) | Auftragsverarbeitungsvertrag mit echter Dienstleisterliste |
 | [`naim/04-Preise-und-Stundensatz.md`](naim/04-Preise-und-Stundensatz.md) | Herleitung von Stundensatz und Baukasten-Preis mit/ohne KI-Assistent |
-| [`naim/05-Einmalverkauf-Option.md`](naim/05-Einmalverkauf-Option.md) | Alternative: Einmalverkauf statt Abo — Preis, Rechtsfolgen, Empfehlung |
+| [`naim/05-Einmalverkauf-Option.md`](naim/05-Einmalverkauf-Option.md) | Einmalverkauf: Preis, Rechtsfolgen, Entscheidung vom 17.08.2026 |
+| [`naim/06-Angebot-Naim-Edition.md`](naim/06-Angebot-Naim-Edition.md) | **Kundenfertiges Angebot** — 14.900 € + 149 €/Monat, eingefroren, Entwicklung auf Wunsch |
 
 ## Allgemeine Vorlage (für weitere Kunden)
 
