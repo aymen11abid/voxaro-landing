@@ -145,3 +145,56 @@ das Geld sofort statt in zwei Raten.
 - **Werkvertrag Naim-Edition** — ersetzt den Pilot-Nutzungsvertrag, weil aus Miete jetzt Werkvertrag wird.
 - **Abnahmeprotokoll** — ein Blatt, das beide unterschreiben. Ab diesem Datum laufen die 24 Monate.
 - Der **AVV** aus Anlage 2 gilt unverändert weiter, da du weiterhin hostest.
+
+---
+
+## 7 · Nachtrag: Infrastruktur komplett auf Naims Konten
+
+Entschieden: Server, Datenbank, Telefonie und Sprach-KI laufen auf Konten, die **Auto Naim
+gehören**. Werkano legt nichts mehr aus und erbringt keine laufende Leistung mehr.
+
+### Der Preis steigt auf 17.900 €
+
+Rechnung dahinter: Im vorherigen Modell kamen über fünf Jahre 149 € × 60 = 8.940 € an
+Wartungsentgelt dazu. Fällt das weg, fällt auch der Grund weg, die Lizenz bei 14.900 € zu halten.
+**+ 3.000 €** holen rund ein Drittel davon zurück — mehr wäre nicht durchsetzbar, weniger wäre
+geschenkt. Für Naim rechnet es sich trotzdem klar: Er zahlt über fünf Jahre 17.900 € statt
+23.840 €, dafür trägt er die Anbieterkosten von 50–80 € im Monat selbst.
+
+### Was du dadurch verlierst
+
+- **Die Marge auf den Assistenten.** Die 100 €/Monat und die 0,25 €/Minute sind weg — Naim zahlt
+  Vapi direkt etwa 0,05 $ je Minute. Das war der profitabelste Teil des Abo-Modells.
+- **Wiederkehrenden Umsatz überhaupt.** Nach der Abnahme kommt nur noch Geld herein, wenn Naim
+  etwas bestellt.
+
+### Was du dadurch gewinnst
+
+- **Kein Kostenrisiko.** Telefoniert Naim 3.000 Minuten im Monat, zahlt er das selbst.
+- **Kein Zahlungsausfallrisiko** bei den Anbietern.
+- **17.900 € sofort** statt in Monatsraten — für einen Einzelkämpfer der eigentliche Punkt.
+
+### Drei Fallen, die jetzt im Angebot geschlossen sind
+
+1. **Backups.** Der kostenlose Supabase-Tarif sichert nicht verlässlich. Bucht Naim ihn trotzdem
+   und verliert Daten, landet der Vorwurf bei dem, der es gebaut hat. Im Angebot steht deshalb
+   ausdrücklich, dass ein Tarif mit Datensicherung Voraussetzung ist.
+2. **Sicherheitsupdates.** Wenn niemand patcht, entsteht ein Datenschutzverstoß — nach dem
+   Kontenwechsel ist das Naims Verstoß, nicht deiner. Trotzdem solltest du die
+   **Sicherheitspauschale von 79 €/Monat** anbieten und, falls Naim ablehnt, die Ablehnung
+   schriftlich im Vertrag festhalten. Das ist der Unterschied zwischen „nicht zuständig" und
+   „hat es sehenden Auges laufen lassen".
+3. **AVV-Kette.** Da die Konten Naim gehören, muss **Naim selbst** die
+   Auftragsverarbeitungsverträge mit Supabase, Twilio, Vapi, ElevenLabs und Vercel abschließen.
+   Realistisch wird er das nicht von allein tun. Stell ihm die Links und Vorlagen bereit und lass
+   dir den Abschluss bestätigen — sonst betreibt dein wichtigster Referenzkunde eine rechtswidrige
+   Datenverarbeitung mit deinem Namen darauf.
+
+### Und das bleibt trotz „ich übernehme nichts mehr"
+
+- **24 Monate Gewährleistung** ab Abnahme, gesetzlich zwingend beim Werkvertrag. Dafür brauchst du
+  Zugang zu Naims Konten — im Angebot steht deshalb: Ohne Zugang ruht die Gewährleistung.
+- **Ein schlanker AVV zwischen Naim und dir**, weil du bei Gewährleistung, Pauschale oder
+  beauftragter Entwicklung auf personenbezogene Daten zugreifst.
+- **Anlage 2 aus dem Pilotvertrag passt nicht mehr** — die Unterauftragsverarbeiter dort sind
+  jetzt Naims eigene Vertragspartner. Der AVV muss für dieses Modell neu geschrieben werden.
