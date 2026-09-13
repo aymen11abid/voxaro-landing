@@ -1,13 +1,61 @@
 <!DOCTYPE html>
-<html lang="de">
+<html lang="de" class="dark">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Werkanio — KI Werkstatt Assistent</title>
   <meta name="description" content="Kein Anruf geht verloren. Sarah arbeitet 24/7. Der KI-Telefon-Agent für Kfz-Werkstätten." />
+  <meta id="theme-color-meta" name="theme-color" content="#09090b" />
+
+  <!-- Theme möglichst früh setzen, damit es beim Laden nicht kurz aufblitzt -->
+  <script>
+    window.WerkanioTheme = (function () {
+      var KEY = 'werkanio-theme';
+      var root = document.documentElement;
+      var media = window.matchMedia('(prefers-color-scheme: dark)');
+
+      function stored() {
+        try { return localStorage.getItem(KEY); } catch (e) { return null; }
+      }
+
+      // 'dark' ist der Standard — so sieht die Seite aus wie bisher.
+      function mode() {
+        var m = stored();
+        return (m === 'light' || m === 'dark' || m === 'system') ? m : 'dark';
+      }
+
+      function isDark(m) {
+        return m === 'dark' || (m === 'system' && media.matches);
+      }
+
+      function apply() {
+        var dark = isDark(mode());
+        root.classList.toggle('dark', dark);
+        root.style.colorScheme = dark ? 'dark' : 'light';
+        var meta = document.getElementById('theme-color-meta');
+        if (meta) meta.setAttribute('content', dark ? '#09090b' : '#ffffff');
+      }
+
+      function set(m) {
+        try { localStorage.setItem(KEY, m); } catch (e) {}
+        apply();
+        document.dispatchEvent(new CustomEvent('werkanio:themechange', { detail: { mode: m } }));
+      }
+
+      // Systemwechsel nur übernehmen, wenn "System" gewählt ist
+      var onChange = function () { if (mode() === 'system') apply(); };
+      if (media.addEventListener) media.addEventListener('change', onChange);
+      else if (media.addListener) media.addListener(onChange);
+
+      apply();
+      return { get: mode, set: set, apply: apply };
+    })();
+  </script>
+
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
     tailwind.config = {
+      darkMode: 'class',
       theme: {
         extend: {
           colors: {
@@ -21,15 +69,22 @@
     }
   </script>
   <style>
-    body { background: #09090b; }
+    body { background: #ffffff; }
+    html.dark body { background: #09090b; }
     @keyframes pulse-slow { 0%,100%{opacity:1} 50%{opacity:.6} }
     .pulse-slow { animation: pulse-slow 2.5s ease-in-out infinite; }
+
+    /* Aktive Auswahl im Einstellungs-Menü */
+    .theme-check { visibility: hidden; }
+    .theme-option[aria-checked="true"] { background: #f4f4f5; color: #18181b; }
+    .theme-option[aria-checked="true"] .theme-check { visibility: visible; }
+    html.dark .theme-option[aria-checked="true"] { background: #27272a; color: #fafafa; }
   </style>
 </head>
-<body class="text-zinc-100 font-sans antialiased">
+<body class="text-zinc-900 dark:text-zinc-100 font-sans antialiased">
 
   <!-- Navbar -->
-  <nav class="sticky top-0 z-20 bg-zinc-900/90 backdrop-blur border-b border-zinc-800">
+  <nav class="sticky top-0 z-20 bg-white/90 dark:bg-zinc-900/90 backdrop-blur border-b border-zinc-200 dark:border-zinc-800">
     <div class="max-w-5xl mx-auto px-4 h-14 flex items-center justify-between">
       <!-- Logo -->
       <div class="flex items-center gap-2">
@@ -37,22 +92,73 @@
           <path d="M13 2L4.5 13.5H11L9 22L19.5 10H13L13 2Z" fill="#FF6B00"/>
         </svg>
         <span class="text-lg font-black tracking-wider leading-none">
-          <span style="color:#FF6B00">WERK</span><span class="text-white">ANIO</span>
+          <span style="color:#FF6B00">WERK</span><span class="text-zinc-900 dark:text-white">ANIO</span>
         </span>
       </div>
-      <div class="flex items-center gap-4">
-        <a href="#preise" class="text-sm font-medium text-zinc-400 hover:text-zinc-100 transition-colors">Preise</a>
+      <div class="flex items-center gap-2 sm:gap-4">
+        <a href="#preise" class="text-sm font-medium text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-100 transition-colors">Preise</a>
         <a href="https://voxaro.vercel.app/login"
-           class="text-sm font-medium border border-orange-500/50 text-orange-400 hover:border-orange-400 hover:text-orange-300 px-4 py-1.5 rounded-lg transition-colors">
+           class="text-sm font-medium border border-orange-500/60 dark:border-orange-500/50 text-orange-600 dark:text-orange-400 hover:border-orange-500 dark:hover:border-orange-400 hover:text-orange-700 dark:hover:text-orange-300 px-4 py-1.5 rounded-lg transition-colors">
           Anmelden
         </a>
+
+        <!-- Einstellungen -->
+        <div class="relative">
+          <button id="settings-btn" type="button" aria-haspopup="dialog" aria-expanded="false" aria-controls="settings-panel"
+                  title="Einstellungen" aria-label="Einstellungen"
+                  class="p-2 rounded-lg text-zinc-500 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-100 hover:bg-zinc-100 dark:hover:bg-zinc-800 transition-colors">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="3"/>
+              <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 1 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06A1.65 1.65 0 0 0 4.6 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 1 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06A1.65 1.65 0 0 0 9 4.6a1.65 1.65 0 0 0 1-1.51V3a2 2 0 1 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06A1.65 1.65 0 0 0 19.4 9v0c.2.61.76 1.03 1.4 1.03H21a2 2 0 1 1 0 4h-.09c-.64 0-1.2.42-1.51 1z"/>
+            </svg>
+          </button>
+
+          <div id="settings-panel" role="dialog" aria-label="Einstellungen" hidden
+               class="absolute right-0 mt-2 w-60 p-3 rounded-2xl border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-900 shadow-xl shadow-zinc-900/10 dark:shadow-black/40 z-30">
+            <p class="text-[11px] font-semibold uppercase tracking-widest text-zinc-500 px-1 mb-3">Einstellungen</p>
+            <p class="text-xs font-semibold text-zinc-700 dark:text-zinc-300 px-1 mb-2">Erscheinungsbild</p>
+            <div role="radiogroup" aria-label="Erscheinungsbild" class="space-y-1">
+
+              <button type="button" role="radio" aria-checked="false" data-theme="light"
+                      class="theme-option w-full flex items-center gap-2.5 px-2.5 py-2 rounded-xl text-sm font-medium text-zinc-700 dark:text-zinc-300 hover:bg-zinc-100 dark:hover:bg-zinc-800 transition-colors">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="shrink-0">
+                  <circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/>
+                </svg>
+                <span class="flex-1 text-left">Hell</span>
+                <svg class="theme-check w-4 h-4 text-orange-500" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+              </button>
+
+              <button type="button" role="radio" aria-checked="false" data-theme="dark"
+                      class="theme-option w-full flex items-center gap-2.5 px-2.5 py-2 rounded-xl text-sm font-medium text-zinc-700 dark:text-zinc-300 hover:bg-zinc-100 dark:hover:bg-zinc-800 transition-colors">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="shrink-0">
+                  <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+                </svg>
+                <span class="flex-1 text-left">Dunkel</span>
+                <svg class="theme-check w-4 h-4 text-orange-500" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+              </button>
+
+              <button type="button" role="radio" aria-checked="false" data-theme="system"
+                      class="theme-option w-full flex items-center gap-2.5 px-2.5 py-2 rounded-xl text-sm font-medium text-zinc-700 dark:text-zinc-300 hover:bg-zinc-100 dark:hover:bg-zinc-800 transition-colors">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="shrink-0">
+                  <rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/>
+                </svg>
+                <span class="flex-1 text-left">System</span>
+                <svg class="theme-check w-4 h-4 text-orange-500" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+              </button>
+
+            </div>
+            <p class="text-[11px] text-zinc-500 dark:text-zinc-500 px-1 mt-3 leading-relaxed">
+              Deine Auswahl wird auf diesem Gerät gespeichert.
+            </p>
+          </div>
+        </div>
       </div>
     </div>
   </nav>
 
   <!-- Hero -->
   <section class="max-w-5xl mx-auto px-4 pt-24 pb-20 text-center">
-    <span class="inline-flex items-center gap-1.5 text-xs font-semibold bg-orange-500/10 border border-orange-500/20 text-orange-400 px-3 py-1 rounded-full mb-6">
+    <span class="inline-flex items-center gap-1.5 text-xs font-semibold bg-orange-500/10 border border-orange-500/20 text-orange-600 dark:text-orange-400 px-3 py-1 rounded-full mb-6">
       <svg width="11" height="11" viewBox="0 0 24 24" fill="currentColor"><path d="M13 2L4.5 13.5H11L9 22L19.5 10H13L13 2Z"/></svg>
       KI-Assistent für Kfz-Werkstätten
     </span>
@@ -60,7 +166,7 @@
       Kein Anruf geht verloren.<br />
       <span style="color:#FF6B00">Dein KI-Assistent arbeitet 24/7.</span>
     </h1>
-    <p class="text-lg text-zinc-400 max-w-xl mx-auto mb-8 leading-relaxed">
+    <p class="text-lg text-zinc-600 dark:text-zinc-400 max-w-xl mx-auto mb-8 leading-relaxed">
       Werkanio nimmt Anrufe entgegen, erfasst Aufträge automatisch und hält dein Team auf dem Laufenden —
       damit du dich auf die Arbeit konzentrieren kannst.
     </p>
@@ -70,26 +176,26 @@
         Demo vereinbaren
       </a>
       <a href="https://voxaro.vercel.app/login"
-         class="inline-flex items-center justify-center gap-2 bg-zinc-800 hover:bg-zinc-700 text-zinc-100 font-semibold px-6 py-3 rounded-xl transition-colors text-sm">
+         class="inline-flex items-center justify-center gap-2 bg-zinc-100 hover:bg-zinc-200 dark:bg-zinc-800 dark:hover:bg-zinc-700 border border-zinc-200 dark:border-transparent text-zinc-900 dark:text-zinc-100 font-semibold px-6 py-3 rounded-xl transition-colors text-sm">
         Zum Dashboard
       </a>
     </div>
   </section>
 
   <!-- Stats -->
-  <section class="border-y border-zinc-800 bg-zinc-900/30">
+  <section class="border-y border-zinc-200 dark:border-zinc-800 bg-zinc-50 dark:bg-zinc-900/30">
     <div class="max-w-5xl mx-auto px-4 py-10 grid grid-cols-3 gap-6 text-center">
       <div>
         <p class="text-2xl sm:text-3xl font-black" style="color:#FF6B00">24/7</p>
-        <p class="text-xs text-zinc-500 mt-1">Erreichbarkeit</p>
+        <p class="text-xs text-zinc-600 dark:text-zinc-500 mt-1">Erreichbarkeit</p>
       </div>
       <div>
         <p class="text-2xl sm:text-3xl font-black" style="color:#FF6B00">&lt; 10s</p>
-        <p class="text-xs text-zinc-500 mt-1">Auftrag erstellt</p>
+        <p class="text-xs text-zinc-600 dark:text-zinc-500 mt-1">Auftrag erstellt</p>
       </div>
       <div>
         <p class="text-2xl sm:text-3xl font-black" style="color:#FF6B00">0</p>
-        <p class="text-xs text-zinc-500 mt-1">Verpasste Anrufe</p>
+        <p class="text-xs text-zinc-600 dark:text-zinc-500 mt-1">Verpasste Anrufe</p>
       </div>
     </div>
   </section>
@@ -97,41 +203,41 @@
   <!-- How it works -->
   <section class="py-20">
     <div class="max-w-5xl mx-auto px-4">
-      <p class="text-xs font-semibold text-orange-400 uppercase tracking-widest text-center mb-2">So funktioniert's</p>
+      <p class="text-xs font-semibold text-orange-600 dark:text-orange-400 uppercase tracking-widest text-center mb-2">So funktioniert's</p>
       <h2 class="text-2xl sm:text-3xl font-black text-center mb-12">3 Schritte — vollautomatisch</h2>
       <div class="grid sm:grid-cols-3 gap-4">
 
-        <div class="bg-zinc-900 border border-zinc-800 rounded-2xl p-6 relative overflow-hidden">
-          <span class="absolute top-4 right-4 text-4xl font-black text-zinc-800/60 select-none leading-none">01</span>
-          <div class="w-10 h-10 rounded-xl bg-orange-500/10 flex items-center justify-center mb-4">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#fb923c" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <div class="bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 shadow-sm dark:shadow-none rounded-2xl p-6 relative overflow-hidden">
+          <span class="absolute top-4 right-4 text-4xl font-black text-zinc-200 dark:text-zinc-800/60 select-none leading-none">01</span>
+          <div class="w-10 h-10 rounded-xl bg-orange-500/10 flex items-center justify-center mb-4 text-orange-600 dark:text-orange-400">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
               <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.5 12 19.79 19.79 0 0 1 1.15 3.18 2 2 0 0 1 3.12 1h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.09 8.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 21 16z"/>
             </svg>
           </div>
-          <h3 class="font-bold text-zinc-100 mb-2">Kunde ruft an</h3>
-          <p class="text-sm text-zinc-500 leading-relaxed">Werkanio nimmt jeden Anruf entgegen — auch wenn du gerade in der Grube bist oder die Werkstatt geschlossen hat.</p>
+          <h3 class="font-bold text-zinc-900 dark:text-zinc-100 mb-2">Kunde ruft an</h3>
+          <p class="text-sm text-zinc-600 dark:text-zinc-500 leading-relaxed">Werkanio nimmt jeden Anruf entgegen — auch wenn du gerade in der Grube bist oder die Werkstatt geschlossen hat.</p>
         </div>
 
-        <div class="bg-zinc-900 border border-zinc-800 rounded-2xl p-6 relative overflow-hidden">
-          <span class="absolute top-4 right-4 text-4xl font-black text-zinc-800/60 select-none leading-none">02</span>
-          <div class="w-10 h-10 rounded-xl bg-orange-500/10 flex items-center justify-center mb-4">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#fb923c" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <div class="bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 shadow-sm dark:shadow-none rounded-2xl p-6 relative overflow-hidden">
+          <span class="absolute top-4 right-4 text-4xl font-black text-zinc-200 dark:text-zinc-800/60 select-none leading-none">02</span>
+          <div class="w-10 h-10 rounded-xl bg-orange-500/10 flex items-center justify-center mb-4 text-orange-600 dark:text-orange-400">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
               <path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/>
             </svg>
           </div>
-          <h3 class="font-bold text-zinc-100 mb-2">Sarah erfasst alles</h3>
-          <p class="text-sm text-zinc-500 leading-relaxed">Fahrzeug, Kennzeichen, Problem und Rückrufwunsch — strukturiert aufgenommen, ohne dass du dabei sein musst.</p>
+          <h3 class="font-bold text-zinc-900 dark:text-zinc-100 mb-2">Sarah erfasst alles</h3>
+          <p class="text-sm text-zinc-600 dark:text-zinc-500 leading-relaxed">Fahrzeug, Kennzeichen, Problem und Rückrufwunsch — strukturiert aufgenommen, ohne dass du dabei sein musst.</p>
         </div>
 
-        <div class="bg-zinc-900 border border-zinc-800 rounded-2xl p-6 relative overflow-hidden">
-          <span class="absolute top-4 right-4 text-4xl font-black text-zinc-800/60 select-none leading-none">03</span>
-          <div class="w-10 h-10 rounded-xl bg-orange-500/10 flex items-center justify-center mb-4">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#fb923c" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <div class="bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 shadow-sm dark:shadow-none rounded-2xl p-6 relative overflow-hidden">
+          <span class="absolute top-4 right-4 text-4xl font-black text-zinc-200 dark:text-zinc-800/60 select-none leading-none">03</span>
+          <div class="w-10 h-10 rounded-xl bg-orange-500/10 flex items-center justify-center mb-4 text-orange-600 dark:text-orange-400">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
               <rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/>
             </svg>
           </div>
-          <h3 class="font-bold text-zinc-100 mb-2">Auftrag im Dashboard</h3>
-          <p class="text-sm text-zinc-500 leading-relaxed">Sofort sichtbar im Werkanio-Dashboard. Kein Zettel, kein Vergessen, kein Telefonat nötig.</p>
+          <h3 class="font-bold text-zinc-900 dark:text-zinc-100 mb-2">Auftrag im Dashboard</h3>
+          <p class="text-sm text-zinc-600 dark:text-zinc-500 leading-relaxed">Sofort sichtbar im Werkanio-Dashboard. Kein Zettel, kein Vergessen, kein Telefonat nötig.</p>
         </div>
 
       </div>
@@ -139,57 +245,57 @@
   </section>
 
   <!-- Features -->
-  <section class="bg-zinc-900/50 border-y border-zinc-800 py-20">
+  <section class="bg-zinc-50 dark:bg-zinc-900/50 border-y border-zinc-200 dark:border-zinc-800 py-20">
     <div class="max-w-5xl mx-auto px-4">
-      <p class="text-xs font-semibold text-orange-400 uppercase tracking-widest text-center mb-2">Features</p>
+      <p class="text-xs font-semibold text-orange-600 dark:text-orange-400 uppercase tracking-widest text-center mb-2">Features</p>
       <h2 class="text-2xl sm:text-3xl font-black text-center mb-12">Alles was deine Werkstatt braucht</h2>
       <div class="grid sm:grid-cols-2 gap-4">
 
-        <div class="bg-zinc-900 border border-zinc-800 rounded-2xl p-6 flex gap-4">
-          <div class="w-10 h-10 rounded-xl bg-orange-500/10 flex items-center justify-center shrink-0 mt-0.5">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#fb923c" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <div class="bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 shadow-sm dark:shadow-none rounded-2xl p-6 flex gap-4">
+          <div class="w-10 h-10 rounded-xl bg-orange-500/10 flex items-center justify-center shrink-0 mt-0.5 text-orange-600 dark:text-orange-400">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
               <circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/>
             </svg>
           </div>
           <div>
-            <h3 class="font-bold text-zinc-100 mb-1.5">24/7 Erreichbarkeit</h3>
-            <p class="text-sm text-zinc-500 leading-relaxed">Dein KI-Assistent schläft nie. Auch außerhalb der Öffnungszeiten werden Anrufe professionell entgegengenommen.</p>
+            <h3 class="font-bold text-zinc-900 dark:text-zinc-100 mb-1.5">24/7 Erreichbarkeit</h3>
+            <p class="text-sm text-zinc-600 dark:text-zinc-500 leading-relaxed">Dein KI-Assistent schläft nie. Auch außerhalb der Öffnungszeiten werden Anrufe professionell entgegengenommen.</p>
           </div>
         </div>
 
-        <div class="bg-zinc-900 border border-zinc-800 rounded-2xl p-6 flex gap-4">
-          <div class="w-10 h-10 rounded-xl bg-orange-500/10 flex items-center justify-center shrink-0 mt-0.5">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#fb923c" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <div class="bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 shadow-sm dark:shadow-none rounded-2xl p-6 flex gap-4">
+          <div class="w-10 h-10 rounded-xl bg-orange-500/10 flex items-center justify-center shrink-0 mt-0.5 text-orange-600 dark:text-orange-400">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
               <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/>
             </svg>
           </div>
           <div>
-            <h3 class="font-bold text-zinc-100 mb-1.5">Automatische Auftragsanlage</h3>
-            <p class="text-sm text-zinc-500 leading-relaxed">Aus jedem Anruf wird sofort ein strukturierter Auftrag — mit Fahrzeug, Problem und Kontaktdaten.</p>
+            <h3 class="font-bold text-zinc-900 dark:text-zinc-100 mb-1.5">Automatische Auftragsanlage</h3>
+            <p class="text-sm text-zinc-600 dark:text-zinc-500 leading-relaxed">Aus jedem Anruf wird sofort ein strukturierter Auftrag — mit Fahrzeug, Problem und Kontaktdaten.</p>
           </div>
         </div>
 
-        <div class="bg-zinc-900 border border-zinc-800 rounded-2xl p-6 flex gap-4">
-          <div class="w-10 h-10 rounded-xl bg-orange-500/10 flex items-center justify-center shrink-0 mt-0.5">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#fb923c" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <div class="bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 shadow-sm dark:shadow-none rounded-2xl p-6 flex gap-4">
+          <div class="w-10 h-10 rounded-xl bg-orange-500/10 flex items-center justify-center shrink-0 mt-0.5 text-orange-600 dark:text-orange-400">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
               <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
             </svg>
           </div>
           <div>
-            <h3 class="font-bold text-zinc-100 mb-1.5">Status-SMS an Kunden</h3>
-            <p class="text-sm text-zinc-500 leading-relaxed">Kunden werden automatisch per SMS informiert: Termin bestätigt, Freigabe nötig, Fahrzeug fertig.</p>
+            <h3 class="font-bold text-zinc-900 dark:text-zinc-100 mb-1.5">Status-SMS an Kunden</h3>
+            <p class="text-sm text-zinc-600 dark:text-zinc-500 leading-relaxed">Kunden werden automatisch per SMS informiert: Termin bestätigt, Freigabe nötig, Fahrzeug fertig.</p>
           </div>
         </div>
 
-        <div class="bg-zinc-900 border border-zinc-800 rounded-2xl p-6 flex gap-4">
-          <div class="w-10 h-10 rounded-xl bg-orange-500/10 flex items-center justify-center shrink-0 mt-0.5">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#fb923c" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <div class="bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 shadow-sm dark:shadow-none rounded-2xl p-6 flex gap-4">
+          <div class="w-10 h-10 rounded-xl bg-orange-500/10 flex items-center justify-center shrink-0 mt-0.5 text-orange-600 dark:text-orange-400">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
               <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/>
             </svg>
           </div>
           <div>
-            <h3 class="font-bold text-zinc-100 mb-1.5">Freigabe per Link</h3>
-            <p class="text-sm text-zinc-500 leading-relaxed">Zusatzarbeiten mit Foto und Preis direkt per SMS freigeben lassen — kein Anruf nötig.</p>
+            <h3 class="font-bold text-zinc-900 dark:text-zinc-100 mb-1.5">Freigabe per Link</h3>
+            <p class="text-sm text-zinc-600 dark:text-zinc-500 leading-relaxed">Zusatzarbeiten mit Foto und Preis direkt per SMS freigeben lassen — kein Anruf nötig.</p>
           </div>
         </div>
 
@@ -200,29 +306,29 @@
   <!-- Warum Werkanio -->
   <section class="py-20">
     <div class="max-w-3xl mx-auto px-4 text-center">
-      <p class="text-xs font-semibold text-orange-400 uppercase tracking-widest mb-2">Warum Werkanio</p>
+      <p class="text-xs font-semibold text-orange-600 dark:text-orange-400 uppercase tracking-widest mb-2">Warum Werkanio</p>
       <h2 class="text-2xl sm:text-3xl font-black mb-12">Deine Werkstatt. Immer erreichbar.</h2>
       <div class="grid sm:grid-cols-3 gap-6 text-left">
         <div class="space-y-2">
-          <div class="w-8 h-8 rounded-lg bg-orange-500/10 flex items-center justify-center">
-            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#fb923c" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+          <div class="w-8 h-8 rounded-lg bg-orange-500/10 flex items-center justify-center text-orange-600 dark:text-orange-400">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
           </div>
-          <h4 class="font-bold text-zinc-100 text-sm">Keine Wartezeit</h4>
-          <p class="text-xs text-zinc-500 leading-relaxed">Jeder Anruf wird sofort beantwortet — ohne Warteschleife.</p>
+          <h4 class="font-bold text-zinc-900 dark:text-zinc-100 text-sm">Keine Wartezeit</h4>
+          <p class="text-xs text-zinc-600 dark:text-zinc-500 leading-relaxed">Jeder Anruf wird sofort beantwortet — ohne Warteschleife.</p>
         </div>
         <div class="space-y-2">
-          <div class="w-8 h-8 rounded-lg bg-orange-500/10 flex items-center justify-center">
-            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#fb923c" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          <div class="w-8 h-8 rounded-lg bg-orange-500/10 flex items-center justify-center text-orange-600 dark:text-orange-400">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
           </div>
-          <h4 class="font-bold text-zinc-100 text-sm">Datensicherheit</h4>
-          <p class="text-xs text-zinc-500 leading-relaxed">Daten bleiben in Deutschland — DSGVO-konform von Anfang an.</p>
+          <h4 class="font-bold text-zinc-900 dark:text-zinc-100 text-sm">Datensicherheit</h4>
+          <p class="text-xs text-zinc-600 dark:text-zinc-500 leading-relaxed">Daten bleiben in Deutschland — DSGVO-konform von Anfang an.</p>
         </div>
         <div class="space-y-2">
-          <div class="w-8 h-8 rounded-lg bg-orange-500/10 flex items-center justify-center">
-            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#fb923c" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+          <div class="w-8 h-8 rounded-lg bg-orange-500/10 flex items-center justify-center text-orange-600 dark:text-orange-400">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
           </div>
-          <h4 class="font-bold text-zinc-100 text-sm">Kein Extra-Setup</h4>
-          <p class="text-xs text-zinc-500 leading-relaxed">Läuft auf jedem Gerät — kein Download, keine Installation.</p>
+          <h4 class="font-bold text-zinc-900 dark:text-zinc-100 text-sm">Kein Extra-Setup</h4>
+          <p class="text-xs text-zinc-600 dark:text-zinc-500 leading-relaxed">Läuft auf jedem Gerät — kein Download, keine Installation.</p>
         </div>
       </div>
     </div>
@@ -232,7 +338,7 @@
   <section id="preise" class="max-w-5xl mx-auto px-4 py-24">
     <div class="text-center mb-4">
       <h2 class="text-3xl sm:text-4xl font-black mb-4">Ein Preis. Keine Überraschungen.</h2>
-      <p class="text-zinc-400 max-w-lg mx-auto text-sm leading-relaxed">
+      <p class="text-zinc-600 dark:text-zinc-400 max-w-lg mx-auto text-sm leading-relaxed">
         Telefonassistent und Werkstattsoftware zusammen — für weniger als ein reiner Telefondienst kostet.
         Monatlich kündbar, Einrichtung inklusive.
       </p>
@@ -241,14 +347,14 @@
     <div class="grid md:grid-cols-3 gap-5 mt-12 items-start">
 
       <!-- Starter -->
-      <div class="bg-zinc-900 border border-zinc-800 rounded-2xl p-6 flex flex-col">
+      <div class="bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 shadow-sm dark:shadow-none rounded-2xl p-6 flex flex-col">
         <h3 class="text-lg font-bold">Starter</h3>
-        <p class="text-xs text-zinc-500 mt-1 mb-5">Für Werkstätten, die keinen Anruf mehr verlieren wollen.</p>
+        <p class="text-xs text-zinc-600 dark:text-zinc-500 mt-1 mb-5">Für Werkstätten, die keinen Anruf mehr verlieren wollen.</p>
         <div class="flex items-baseline gap-1.5 mb-6">
           <span class="text-4xl font-black">99</span>
-          <span class="text-zinc-400 text-sm">€ / Monat</span>
+          <span class="text-zinc-600 dark:text-zinc-400 text-sm">€ / Monat</span>
         </div>
-        <ul class="space-y-2.5 text-sm text-zinc-300 flex-1">
+        <ul class="space-y-2.5 text-sm text-zinc-700 dark:text-zinc-300 flex-1">
           <li class="flex gap-2"><span class="text-orange-500 shrink-0">✓</span> Sarah nimmt Anrufe an — <b>150 Minuten inklusive</b></li>
           <li class="flex gap-2"><span class="text-orange-500 shrink-0">✓</span> Aufträge &amp; Kalender</li>
           <li class="flex gap-2"><span class="text-orange-500 shrink-0">✓</span> Kunden- &amp; Fahrzeugakten</li>
@@ -256,23 +362,23 @@
           <li class="flex gap-2"><span class="text-orange-500 shrink-0">✓</span> SMS &amp; WhatsApp an Kunden</li>
         </ul>
         <a href="mailto:info@werkanio.de?subject=Starter%20-%20Demo%20Anfrage"
-           class="mt-6 text-center border border-zinc-700 hover:border-zinc-500 text-zinc-200 font-medium px-5 py-2.5 rounded-xl transition-colors text-sm">
+           class="mt-6 text-center border border-zinc-300 dark:border-zinc-700 hover:border-zinc-400 dark:hover:border-zinc-500 text-zinc-800 dark:text-zinc-200 font-medium px-5 py-2.5 rounded-xl transition-colors text-sm">
           Demo vereinbaren
         </a>
       </div>
 
       <!-- Pro (hervorgehoben) -->
-      <div class="bg-zinc-900 border-2 border-orange-500/60 rounded-2xl p-6 flex flex-col relative md:-mt-3">
+      <div class="bg-white dark:bg-zinc-900 border-2 border-orange-500/60 shadow-sm dark:shadow-none rounded-2xl p-6 flex flex-col relative md:-mt-3">
         <span class="absolute -top-3 left-1/2 -translate-x-1/2 bg-orange-500 text-white text-[11px] font-bold px-3 py-1 rounded-full whitespace-nowrap">
           Empfohlen
         </span>
         <h3 class="text-lg font-bold">Pro</h3>
-        <p class="text-xs text-zinc-500 mt-1 mb-5">Der komplette Werkstatt-Ablauf, vom Anruf bis zur Rechnung.</p>
+        <p class="text-xs text-zinc-600 dark:text-zinc-500 mt-1 mb-5">Der komplette Werkstatt-Ablauf, vom Anruf bis zur Rechnung.</p>
         <div class="flex items-baseline gap-1.5 mb-6">
           <span class="text-4xl font-black">199</span>
-          <span class="text-zinc-400 text-sm">€ / Monat</span>
+          <span class="text-zinc-600 dark:text-zinc-400 text-sm">€ / Monat</span>
         </div>
-        <ul class="space-y-2.5 text-sm text-zinc-300 flex-1">
+        <ul class="space-y-2.5 text-sm text-zinc-700 dark:text-zinc-300 flex-1">
           <li class="flex gap-2"><span class="text-orange-500 shrink-0">✓</span> Alles aus Starter, mit <b>400 Minuten</b></li>
           <li class="flex gap-2"><span class="text-orange-500 shrink-0">✓</span> Leistungskatalog mit Preisen &amp; Paketen</li>
           <li class="flex gap-2"><span class="text-orange-500 shrink-0">✓</span> Freigabe per SMS — Kunde bestätigt Zusatzarbeiten</li>
@@ -287,64 +393,64 @@
       </div>
 
       <!-- Autohandel -->
-      <div class="bg-zinc-900 border border-zinc-800 rounded-2xl p-6 flex flex-col">
+      <div class="bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 shadow-sm dark:shadow-none rounded-2xl p-6 flex flex-col">
         <h3 class="text-lg font-bold">Autohandel</h3>
-        <p class="text-xs text-zinc-500 mt-1 mb-5">Für Werkstätten, die auch mit Fahrzeugen handeln.</p>
+        <p class="text-xs text-zinc-600 dark:text-zinc-500 mt-1 mb-5">Für Werkstätten, die auch mit Fahrzeugen handeln.</p>
         <div class="flex items-baseline gap-1.5 mb-6">
           <span class="text-4xl font-black">+99</span>
-          <span class="text-zinc-400 text-sm">€ / Monat</span>
+          <span class="text-zinc-600 dark:text-zinc-400 text-sm">€ / Monat</span>
         </div>
-        <ul class="space-y-2.5 text-sm text-zinc-300 flex-1">
+        <ul class="space-y-2.5 text-sm text-zinc-700 dark:text-zinc-300 flex-1">
           <li class="flex gap-2"><span class="text-orange-500 shrink-0">✓</span> An- &amp; Verkauf mit Kundenportal</li>
           <li class="flex gap-2"><span class="text-orange-500 shrink-0">✓</span> <b>Kaufvertrag fotografieren — Daten stehen im System</b></li>
           <li class="flex gap-2"><span class="text-orange-500 shrink-0">✓</span> Fahrzeugbestand mit Status &amp; Standtagen</li>
           <li class="flex gap-2"><span class="text-orange-500 shrink-0">✓</span> Eingangs-Check mit Fotos vom Handy</li>
           <li class="flex gap-2"><span class="text-orange-500 shrink-0">✓</span> Abholung planen, Sammelvollmacht auf Knopfdruck</li>
         </ul>
-        <p class="text-[11px] text-zinc-600 mt-4">Zusatzmodul zu Pro</p>
+        <p class="text-[11px] text-zinc-500 dark:text-zinc-600 mt-4">Zusatzmodul zu Pro</p>
         <a href="mailto:info@werkanio.de?subject=Autohandel%20-%20Demo%20Anfrage"
-           class="mt-3 text-center border border-zinc-700 hover:border-zinc-500 text-zinc-200 font-medium px-5 py-2.5 rounded-xl transition-colors text-sm">
+           class="mt-3 text-center border border-zinc-300 dark:border-zinc-700 hover:border-zinc-400 dark:hover:border-zinc-500 text-zinc-800 dark:text-zinc-200 font-medium px-5 py-2.5 rounded-xl transition-colors text-sm">
           Demo vereinbaren
         </a>
       </div>
     </div>
 
-    <p class="text-center text-xs text-zinc-500 mt-8 leading-relaxed">
+    <p class="text-center text-xs text-zinc-600 dark:text-zinc-500 mt-8 leading-relaxed">
       Alle Preise zzgl. MwSt. · Weitere Anrufminuten 0,25 € / Min. · Monatlich kündbar, keine Einrichtungsgebühr
     </p>
 
     <!-- Individualisierung -->
-    <div class="mt-14 bg-zinc-900 border border-zinc-800 rounded-2xl p-8">
+    <div class="mt-14 bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 shadow-sm dark:shadow-none rounded-2xl p-8">
       <div class="grid md:grid-cols-2 gap-8 items-center">
         <div>
-          <p class="text-xs font-semibold text-orange-400 uppercase tracking-widest mb-2">Keine Software von der Stange</p>
+          <p class="text-xs font-semibold text-orange-600 dark:text-orange-400 uppercase tracking-widest mb-2">Keine Software von der Stange</p>
           <h3 class="text-2xl font-black mb-3 leading-tight">Wird auf deinen Betrieb eingerichtet.</h3>
-          <p class="text-sm text-zinc-400 leading-relaxed mb-4">
+          <p class="text-sm text-zinc-600 dark:text-zinc-400 leading-relaxed mb-4">
             Keine zwei Werkstätten arbeiten gleich. Deshalb richten wir Werkanio gemeinsam mit dir ein —
             du musst nichts selbst konfigurieren, und es passt sich deinem Ablauf an statt umgekehrt.
           </p>
-          <p class="text-sm text-zinc-400 leading-relaxed">
+          <p class="text-sm text-zinc-600 dark:text-zinc-400 leading-relaxed">
             Du hast einen Ablauf, den es so noch nicht gibt?
-            <a href="mailto:info@werkanio.de?subject=Individuelle%20Anpassung" class="text-orange-400 hover:text-orange-300 underline underline-offset-2">Sprich uns an</a> —
+            <a href="mailto:info@werkanio.de?subject=Individuelle%20Anpassung" class="text-orange-600 dark:text-orange-400 hover:text-orange-700 dark:hover:text-orange-300 underline underline-offset-2">Sprich uns an</a> —
             vieles lässt sich einstellen, und was fehlt, entwickeln wir weiter.
           </p>
         </div>
-        <ul class="space-y-3 text-sm text-zinc-300">
+        <ul class="space-y-3 text-sm text-zinc-700 dark:text-zinc-300">
           <li class="flex gap-3">
             <span class="text-orange-500 shrink-0">→</span>
-            <span><b class="text-zinc-100">Sarah spricht wie dein Betrieb</b><br /><span class="text-zinc-500">Begrüßung, Öffnungszeiten, was sie fragen soll — alles auf euch abgestimmt.</span></span>
+            <span><b class="text-zinc-900 dark:text-zinc-100">Sarah spricht wie dein Betrieb</b><br /><span class="text-zinc-600 dark:text-zinc-500">Begrüßung, Öffnungszeiten, was sie fragen soll — alles auf euch abgestimmt.</span></span>
           </li>
           <li class="flex gap-3">
             <span class="text-orange-500 shrink-0">→</span>
-            <span><b class="text-zinc-100">Deine Preise, deine Leistungen</b><br /><span class="text-zinc-500">Eigener Leistungskatalog mit deinen Paketen und Stundensätzen.</span></span>
+            <span><b class="text-zinc-900 dark:text-zinc-100">Deine Preise, deine Leistungen</b><br /><span class="text-zinc-600 dark:text-zinc-500">Eigener Leistungskatalog mit deinen Paketen und Stundensätzen.</span></span>
           </li>
           <li class="flex gap-3">
             <span class="text-orange-500 shrink-0">→</span>
-            <span><b class="text-zinc-100">Nur was du brauchst</b><br /><span class="text-zinc-500">Module lassen sich einzeln zuschalten — der Rest bleibt aus dem Weg.</span></span>
+            <span><b class="text-zinc-900 dark:text-zinc-100">Nur was du brauchst</b><br /><span class="text-zinc-600 dark:text-zinc-500">Module lassen sich einzeln zuschalten — der Rest bleibt aus dem Weg.</span></span>
           </li>
           <li class="flex gap-3">
             <span class="text-orange-500 shrink-0">→</span>
-            <span><b class="text-zinc-100">Eigene Vorlagen &amp; Abläufe</b><br /><span class="text-zinc-500">Dokumente, Checklisten und Arbeitsschritte nach deinem Vorbild.</span></span>
+            <span><b class="text-zinc-900 dark:text-zinc-100">Eigene Vorlagen &amp; Abläufe</b><br /><span class="text-zinc-600 dark:text-zinc-500">Dokumente, Checklisten und Arbeitsschritte nach deinem Vorbild.</span></span>
           </li>
         </ul>
       </div>
@@ -352,10 +458,10 @@
   </section>
 
   <!-- CTA -->
-  <section class="bg-zinc-900/50 border-y border-zinc-800 py-24">
+  <section class="bg-zinc-50 dark:bg-zinc-900/50 border-y border-zinc-200 dark:border-zinc-800 py-24">
     <div class="max-w-5xl mx-auto px-4 text-center">
       <h2 class="text-3xl sm:text-4xl font-black mb-4">Bereit, keinen Anruf mehr zu verpassen?</h2>
-      <p class="text-zinc-400 mb-8 max-w-md mx-auto text-sm leading-relaxed">
+      <p class="text-zinc-600 dark:text-zinc-400 mb-8 max-w-md mx-auto text-sm leading-relaxed">
         Werkanio ist bereits bei Werkstätten in Deutschland im Einsatz.
         Kontaktiere uns für eine persönliche Demo — kostenlos und unverbindlich.
       </p>
@@ -367,23 +473,76 @@
   </section>
 
   <!-- Footer -->
-  <footer class="border-t border-zinc-800 py-8">
+  <footer class="border-t border-zinc-200 dark:border-zinc-800 py-8">
     <div class="max-w-5xl mx-auto px-4 flex flex-col sm:flex-row items-center justify-between gap-4">
       <div class="flex items-center gap-2">
         <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
           <path d="M13 2L4.5 13.5H11L9 22L19.5 10H13L13 2Z" fill="#FF6B00"/>
         </svg>
         <span class="text-base font-black tracking-wider">
-          <span style="color:#FF6B00">WERK</span><span class="text-white">ANIO</span>
+          <span style="color:#FF6B00">WERK</span><span class="text-zinc-900 dark:text-white">ANIO</span>
         </span>
       </div>
-      <p class="text-xs text-zinc-600">© 2026 Werkanio. Alle Rechte vorbehalten.</p>
-      <div class="flex gap-4 text-xs text-zinc-600">
-        <a href="#" class="hover:text-zinc-400 transition-colors">Impressum</a>
-        <a href="#" class="hover:text-zinc-400 transition-colors">Datenschutz</a>
+      <p class="text-xs text-zinc-500 dark:text-zinc-600">© 2026 Werkanio. Alle Rechte vorbehalten.</p>
+      <div class="flex gap-4 text-xs text-zinc-500 dark:text-zinc-600">
+        <a href="#" class="hover:text-zinc-700 dark:hover:text-zinc-400 transition-colors">Impressum</a>
+        <a href="#" class="hover:text-zinc-700 dark:hover:text-zinc-400 transition-colors">Datenschutz</a>
       </div>
     </div>
   </footer>
+
+  <!-- Einstellungen: Menü-Logik -->
+  <script>
+    (function () {
+      var btn = document.getElementById('settings-btn');
+      var panel = document.getElementById('settings-panel');
+      var options = Array.prototype.slice.call(document.querySelectorAll('.theme-option'));
+
+      function markActive() {
+        var current = window.WerkanioTheme.get();
+        options.forEach(function (opt) {
+          opt.setAttribute('aria-checked', opt.dataset.theme === current ? 'true' : 'false');
+        });
+      }
+
+      function open() {
+        panel.hidden = false;
+        btn.setAttribute('aria-expanded', 'true');
+      }
+
+      function close() {
+        panel.hidden = true;
+        btn.setAttribute('aria-expanded', 'false');
+      }
+
+      btn.addEventListener('click', function (e) {
+        e.stopPropagation();
+        panel.hidden ? open() : close();
+      });
+
+      panel.addEventListener('click', function (e) { e.stopPropagation(); });
+
+      document.addEventListener('click', function () {
+        if (!panel.hidden) close();
+      });
+
+      document.addEventListener('keydown', function (e) {
+        if (e.key === 'Escape' && !panel.hidden) {
+          close();
+          btn.focus();
+        }
+      });
+
+      options.forEach(function (opt) {
+        opt.addEventListener('click', function () {
+          window.WerkanioTheme.set(opt.dataset.theme);
+        });
+      });
+
+      document.addEventListener('werkanio:themechange', markActive);
+      markActive();
+    })();
+  </script>
 
 </body>
 </html>
