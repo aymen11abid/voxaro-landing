@@ -19,17 +19,16 @@
       }
 
       // 'dark' ist der Standard — so sieht die Seite aus wie bisher.
+      // Ein frueher gespeichertes 'system' wird einmalig aufgeloest.
       function mode() {
         var m = stored();
-        return (m === 'light' || m === 'dark' || m === 'system') ? m : 'dark';
-      }
-
-      function isDark(m) {
-        return m === 'dark' || (m === 'system' && media.matches);
+        if (m === 'light' || m === 'dark') return m;
+        if (m === 'system') return media.matches ? 'dark' : 'light';
+        return 'dark';
       }
 
       function apply() {
-        var dark = isDark(mode());
+        var dark = mode() === 'dark';
         root.classList.toggle('dark', dark);
         root.style.colorScheme = dark ? 'dark' : 'light';
         var meta = document.getElementById('theme-color-meta');
@@ -42,13 +41,12 @@
         document.dispatchEvent(new CustomEvent('werkanio:themechange', { detail: { mode: m } }));
       }
 
-      // Systemwechsel nur übernehmen, wenn "System" gewählt ist
-      var onChange = function () { if (mode() === 'system') apply(); };
-      if (media.addEventListener) media.addEventListener('change', onChange);
-      else if (media.addListener) media.addListener(onChange);
+      function toggle() {
+        set(mode() === 'dark' ? 'light' : 'dark');
+      }
 
       apply();
-      return { get: mode, set: set, apply: apply };
+      return { get: mode, set: set, toggle: toggle, apply: apply };
     })();
   </script>
 
@@ -74,11 +72,11 @@
     @keyframes pulse-slow { 0%,100%{opacity:1} 50%{opacity:.6} }
     .pulse-slow { animation: pulse-slow 2.5s ease-in-out infinite; }
 
-    /* Aktive Auswahl im Einstellungs-Menü */
-    .theme-check { visibility: hidden; }
-    .theme-option[aria-checked="true"] { background: #f4f4f5; color: #18181b; }
-    .theme-option[aria-checked="true"] .theme-check { visibility: visible; }
-    html.dark .theme-option[aria-checked="true"] { background: #27272a; color: #fafafa; }
+    /* Umschalter: im hellen Modus der Mond, im dunklen die Sonne */
+    .icon-sun { display: none; }
+    .icon-moon { display: block; }
+    html.dark .icon-sun { display: block; }
+    html.dark .icon-moon { display: none; }
   </style>
 </head>
 <body class="text-zinc-900 dark:text-zinc-100 font-sans antialiased">
@@ -102,56 +100,17 @@
           Anmelden
         </a>
 
-        <!-- Einstellungen -->
-        <div class="relative">
-          <button id="settings-btn" type="button" aria-haspopup="dialog" aria-expanded="false" aria-controls="settings-panel"
-                  title="Einstellungen" aria-label="Einstellungen"
-                  class="p-2 rounded-lg text-zinc-500 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-100 hover:bg-zinc-100 dark:hover:bg-zinc-800 transition-colors">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <circle cx="12" cy="12" r="3"/>
-              <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 1 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06A1.65 1.65 0 0 0 4.6 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 1 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06A1.65 1.65 0 0 0 9 4.6a1.65 1.65 0 0 0 1-1.51V3a2 2 0 1 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06A1.65 1.65 0 0 0 19.4 9v0c.2.61.76 1.03 1.4 1.03H21a2 2 0 1 1 0 4h-.09c-.64 0-1.2.42-1.51 1z"/>
-            </svg>
-          </button>
-
-          <div id="settings-panel" role="dialog" aria-label="Einstellungen" hidden
-               class="absolute right-0 mt-2 w-60 p-3 rounded-2xl border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-900 shadow-xl shadow-zinc-900/10 dark:shadow-black/40 z-30">
-            <p class="text-[11px] font-semibold uppercase tracking-widest text-zinc-500 px-1 mb-3">Einstellungen</p>
-            <p class="text-xs font-semibold text-zinc-700 dark:text-zinc-300 px-1 mb-2">Erscheinungsbild</p>
-            <div role="radiogroup" aria-label="Erscheinungsbild" class="space-y-1">
-
-              <button type="button" role="radio" aria-checked="false" data-theme="light"
-                      class="theme-option w-full flex items-center gap-2.5 px-2.5 py-2 rounded-xl text-sm font-medium text-zinc-700 dark:text-zinc-300 hover:bg-zinc-100 dark:hover:bg-zinc-800 transition-colors">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="shrink-0">
-                  <circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/>
-                </svg>
-                <span class="flex-1 text-left">Hell</span>
-                <svg class="theme-check w-4 h-4 text-orange-500" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
-              </button>
-
-              <button type="button" role="radio" aria-checked="false" data-theme="dark"
-                      class="theme-option w-full flex items-center gap-2.5 px-2.5 py-2 rounded-xl text-sm font-medium text-zinc-700 dark:text-zinc-300 hover:bg-zinc-100 dark:hover:bg-zinc-800 transition-colors">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="shrink-0">
-                  <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
-                </svg>
-                <span class="flex-1 text-left">Dunkel</span>
-                <svg class="theme-check w-4 h-4 text-orange-500" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
-              </button>
-
-              <button type="button" role="radio" aria-checked="false" data-theme="system"
-                      class="theme-option w-full flex items-center gap-2.5 px-2.5 py-2 rounded-xl text-sm font-medium text-zinc-700 dark:text-zinc-300 hover:bg-zinc-100 dark:hover:bg-zinc-800 transition-colors">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="shrink-0">
-                  <rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/>
-                </svg>
-                <span class="flex-1 text-left">System</span>
-                <svg class="theme-check w-4 h-4 text-orange-500" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
-              </button>
-
-            </div>
-            <p class="text-[11px] text-zinc-500 dark:text-zinc-500 px-1 mt-3 leading-relaxed">
-              Deine Auswahl wird auf diesem Gerät gespeichert.
-            </p>
-          </div>
-        </div>
+        <!-- Hell / Dunkel umschalten -->
+        <button id="theme-toggle" type="button"
+                class="inline-flex items-center justify-center w-9 h-9 rounded-lg border border-zinc-300 dark:border-zinc-700 text-zinc-700 dark:text-zinc-300 hover:text-orange-600 dark:hover:text-orange-400 hover:border-orange-500/60 dark:hover:border-orange-400/60 transition-colors">
+          <svg class="icon-sun" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/>
+          </svg>
+          <svg class="icon-moon" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+          </svg>
+          <span class="sr-only">Erscheinungsbild umschalten</span>
+        </button>
       </div>
     </div>
   </nav>
@@ -491,56 +450,21 @@
     </div>
   </footer>
 
-  <!-- Einstellungen: Menü-Logik -->
+  <!-- Umschalter: Beschriftung pflegen und Klick verarbeiten -->
   <script>
     (function () {
-      var btn = document.getElementById('settings-btn');
-      var panel = document.getElementById('settings-panel');
-      var options = Array.prototype.slice.call(document.querySelectorAll('.theme-option'));
+      var btn = document.getElementById('theme-toggle');
 
-      function markActive() {
-        var current = window.WerkanioTheme.get();
-        options.forEach(function (opt) {
-          opt.setAttribute('aria-checked', opt.dataset.theme === current ? 'true' : 'false');
-        });
+      function label() {
+        var toLight = window.WerkanioTheme.get() === 'dark';
+        var text = toLight ? 'Zum hellen Modus wechseln' : 'Zum dunklen Modus wechseln';
+        btn.setAttribute('aria-label', text);
+        btn.setAttribute('title', text);
       }
 
-      function open() {
-        panel.hidden = false;
-        btn.setAttribute('aria-expanded', 'true');
-      }
-
-      function close() {
-        panel.hidden = true;
-        btn.setAttribute('aria-expanded', 'false');
-      }
-
-      btn.addEventListener('click', function (e) {
-        e.stopPropagation();
-        panel.hidden ? open() : close();
-      });
-
-      panel.addEventListener('click', function (e) { e.stopPropagation(); });
-
-      document.addEventListener('click', function () {
-        if (!panel.hidden) close();
-      });
-
-      document.addEventListener('keydown', function (e) {
-        if (e.key === 'Escape' && !panel.hidden) {
-          close();
-          btn.focus();
-        }
-      });
-
-      options.forEach(function (opt) {
-        opt.addEventListener('click', function () {
-          window.WerkanioTheme.set(opt.dataset.theme);
-        });
-      });
-
-      document.addEventListener('werkanio:themechange', markActive);
-      markActive();
+      btn.addEventListener('click', function () { window.WerkanioTheme.toggle(); });
+      document.addEventListener('werkanio:themechange', label);
+      label();
     })();
   </script>
 
