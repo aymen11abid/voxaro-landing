@@ -1,0 +1,15 @@
+Werkanio E-Mail-Signatur — Nur-Text-Variante
+(für Clients ohne HTML, Mailinglisten, Ticketsysteme)
+
+--
+[Vorname Nachname] | WERKANIO
+[Position] · KI-Assistent für Kfz-Werkstätten
+
+info@werkanio.de · [+49 123 4567890]
+werkanio.de
+
+Kein Anruf geht verloren. Dein KI-Assistent arbeitet 24/7.
+
+[Firmenname, Rechtsform] · [Straße Hausnummer] · [PLZ Ort]
+Vertreten durch: [Name] · Registergericht: [Amtsgericht], [HRB-Nummer]
+USt-IdNr.: [DE000000000]

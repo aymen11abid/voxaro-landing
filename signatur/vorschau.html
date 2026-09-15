@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Werkanio Signatur</title>
+<style>
+  :root{
+    --bg:#fafafa; --card:#ffffff; --ink:#18181b; --muted:#71717a;
+    --line:#e4e4e7; --brand:#FF6B00; --code:#f4f4f5;
+  }
+  :root:not([data-theme="light"]) { }
+  @media (prefers-color-scheme: dark){
+    :root:not([data-theme="light"]){
+      --bg:#09090b; --card:#18181b; --ink:#fafafa; --muted:#a1a1aa;
+      --line:#27272a; --code:#111113;
+    }
+  }
+  :root[data-theme="dark"]{
+    --bg:#09090b; --card:#18181b; --ink:#fafafa; --muted:#a1a1aa;
+    --line:#27272a; --code:#111113;
+  }
+  *{box-sizing:border-box}
+  body{
+    margin:0; background:var(--bg); color:var(--ink);
+    font:15px/1.6 -apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif;
+    -webkit-font-smoothing:antialiased;
+  }
+  .wrap{max-width:820px;margin:0 auto;padding:48px 16px 80px}
+  .logo{font-weight:900;letter-spacing:2px;font-size:20px;line-height:1}
+  .logo .o{color:var(--brand)}
+  h1{font-size:28px;line-height:1.2;letter-spacing:-.02em;margin:28px 0 8px;font-weight:800}
+  .lede{color:var(--muted);margin:0 0 40px;max-width:52ch}
+  h2{font-size:13px;letter-spacing:.12em;text-transform:uppercase;color:var(--brand);margin:0 0 4px;font-weight:700}
+  .sub{color:var(--muted);font-size:13px;margin:0 0 14px}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:26px;overflow-x:auto}
+  section{margin-bottom:40px}
+  .bar{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;margin-bottom:14px}
+  button{
+    font:600 13px/1 inherit;color:#fff;background:var(--brand);border:0;
+    padding:10px 16px;border-radius:9px;cursor:pointer;
+  }
+  button:hover{opacity:.9}
+  button.ghost{background:transparent;color:var(--muted);border:1px solid var(--line)}
+  ol{padding-left:20px;color:var(--muted)}
+  ol li{margin-bottom:6px}
+  ol b{color:var(--ink)}
+  code{background:var(--code);border:1px solid var(--line);border-radius:5px;padding:1px 6px;font-size:13px;color:var(--ink)}
+  pre{background:var(--code);border:1px solid var(--line);border-radius:10px;padding:16px;overflow-x:auto;
+      font:13px/1.65 ui-monospace,SFMono-Regular,Menlo,monospace;color:var(--ink);white-space:pre-wrap}
+  .note{border-left:3px solid var(--brand);padding:2px 0 2px 14px;color:var(--muted);font-size:14px}
+  .stage{background:#fff;border-radius:10px;padding:24px;border:1px solid var(--line)}
+  @media (max-width:520px){ .wrap{padding:32px 16px 64px} h1{font-size:23px} }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <div class="logo"><span class="o">WERK</span>ANIO</div>
+  <h1>E-Mail-Signatur für info@werkanio.de</h1>
+  <p class="lede">Zwei Varianten im Markendesign — tabellenbasiert, mit Inline-Styles, ohne SVG und Webfonts. So rendert sie identisch in Outlook, Gmail, Apple Mail und auf dem Handy.</p>
+
+  <section>
+    <div class="bar">
+      <div>
+        <h2>Variante A — Standard</h2>
+        <p class="sub">Für neue E-Mails und Erstkontakt. Mit Claim, Demo-Link und Pflichtangaben.</p>
+      </div>
+      <button data-copy="a">Signatur kopieren</button>
+    </div>
+    <div class="card"><div class="stage" id="a">
+<table cellpadding="0" cellspacing="0" border="0" style="border-collapse:collapse;font-family:Arial,Helvetica,sans-serif;">
+  <tr>
+    <td style="padding:0 18px 0 0;border-right:3px solid #FF6B00;vertical-align:top;">
+      <div style="font-family:Arial,Helvetica,sans-serif;font-size:19px;font-weight:bold;letter-spacing:2px;line-height:1;white-space:nowrap;"><span style="color:#FF6B00;">WERK</span><span style="color:#18181B;">ANIO</span></div>
+      <div style="font-family:Arial,Helvetica,sans-serif;font-size:11px;color:#71717A;line-height:1.4;padding-top:6px;">KI-Assistent f&uuml;r<br />Kfz-Werkst&auml;tten</div>
+    </td>
+    <td style="padding:0 0 0 18px;vertical-align:top;">
+      <div style="font-family:Arial,Helvetica,sans-serif;font-size:15px;font-weight:bold;color:#18181B;line-height:1.3;">[Vorname Nachname]</div>
+      <div style="font-family:Arial,Helvetica,sans-serif;font-size:12px;color:#71717A;line-height:1.3;padding-top:2px;">[Position, z.&nbsp;B. Gr&uuml;nder &amp; Gesch&auml;ftsf&uuml;hrer]</div>
+      <div style="font-family:Arial,Helvetica,sans-serif;font-size:12px;color:#3F3F46;line-height:1.7;padding-top:10px;"><a href="mailto:info@werkanio.de" style="color:#3F3F46;text-decoration:none;">info@werkanio.de</a><span style="color:#D4D4D8;">&nbsp;&middot;&nbsp;</span><a href="tel:[+491234567890]" style="color:#3F3F46;text-decoration:none;">[+49&nbsp;123&nbsp;4567890]</a><span style="color:#D4D4D8;">&nbsp;&middot;&nbsp;</span><a href="https://werkanio.de" style="color:#FF6B00;text-decoration:none;font-weight:bold;">werkanio.de</a></div>
+      <div style="font-family:Arial,Helvetica,sans-serif;font-size:12px;color:#18181B;line-height:1.6;padding-top:12px;">Kein Anruf geht verloren. Dein KI-Assistent arbeitet 24/7. <a href="mailto:info@werkanio.de?subject=Demo%20Anfrage" style="color:#FF6B00;text-decoration:none;font-weight:bold;">Demo vereinbaren&nbsp;&rsaquo;</a></div>
+    </td>
+  </tr>
+</table>
+<table cellpadding="0" cellspacing="0" border="0" style="border-collapse:collapse;font-family:Arial,Helvetica,sans-serif;">
+  <tr>
+    <td style="padding-top:14px;">
+      <div style="border-top:1px solid #E4E4E7;padding-top:12px;font-family:Arial,Helvetica,sans-serif;font-size:10px;color:#A1A1AA;line-height:1.6;">
+        [Firmenname, Rechtsform] &middot; [Stra&szlig;e Hausnummer] &middot; [PLZ Ort]<br />
+        Vertreten durch: [Name] &middot; Registergericht: [Amtsgericht], [HRB-Nummer] &middot; USt-IdNr.: [DE000000000]<br />
+        Diese E-Mail kann vertrauliche Informationen enthalten. Sollten Sie nicht der richtige Adressat sein, informieren Sie uns bitte und l&ouml;schen Sie diese Nachricht.
+      </div>
+    </td>
+  </tr>
+</table>
+    </div></div>
+  </section>
+
+  <section>
+    <div class="bar">
+      <div>
+        <h2>Variante B — Kompakt</h2>
+        <p class="sub">Für Antworten im laufenden Thread und mobile Postfächer.</p>
+      </div>
+      <button data-copy="b">Signatur kopieren</button>
+    </div>
+    <div class="card"><div class="stage" id="b">
+<table cellpadding="0" cellspacing="0" border="0" style="border-collapse:collapse;font-family:Arial,Helvetica,sans-serif;">
+  <tr>
+    <td style="border-left:3px solid #FF6B00;padding:2px 0 2px 14px;">
+      <div style="font-family:Arial,Helvetica,sans-serif;font-size:14px;font-weight:bold;color:#18181B;line-height:1.4;">[Vorname Nachname]<span style="font-weight:normal;color:#A1A1AA;">&nbsp;|&nbsp;</span><span style="letter-spacing:1px;"><span style="color:#FF6B00;">WERK</span><span style="color:#18181B;">ANIO</span></span></div>
+      <div style="font-family:Arial,Helvetica,sans-serif;font-size:12px;color:#71717A;line-height:1.6;padding-top:3px;">[Position] &middot; KI-Assistent f&uuml;r Kfz-Werkst&auml;tten</div>
+      <div style="font-family:Arial,Helvetica,sans-serif;font-size:12px;color:#3F3F46;line-height:1.7;padding-top:6px;"><a href="mailto:info@werkanio.de" style="color:#3F3F46;text-decoration:none;">info@werkanio.de</a><span style="color:#D4D4D8;">&nbsp;&middot;&nbsp;</span><a href="tel:[+491234567890]" style="color:#3F3F46;text-decoration:none;">[+49&nbsp;123&nbsp;4567890]</a><span style="color:#D4D4D8;">&nbsp;&middot;&nbsp;</span><a href="https://werkanio.de" style="color:#FF6B00;text-decoration:none;font-weight:bold;">werkanio.de</a></div>
+    </td>
+  </tr>
+</table>
+    </div></div>
+  </section>
+
+  <section>
+    <h2>Nur-Text</h2>
+    <p class="sub">Für Ticketsysteme und Clients ohne HTML.</p>
+<pre>--
+[Vorname Nachname] | WERKANIO
+[Position] · KI-Assistent für Kfz-Werkstätten
+
+info@werkanio.de · [+49 123 4567890]
+werkanio.de
+
+Kein Anruf geht verloren. Dein KI-Assistent arbeitet 24/7.
+
+[Firmenname, Rechtsform] · [Straße Hausnummer] · [PLZ Ort]
+Vertreten durch: [Name] · Registergericht: [Amtsgericht], [HRB-Nummer]
+USt-IdNr.: [DE000000000]</pre>
+  </section>
+
+  <section>
+    <h2>Einrichten</h2>
+    <p class="sub">Der Kopieren-Button legt die formatierte Signatur in die Zwischenablage — einfach einfügen.</p>
+    <ol>
+      <li><b>Gmail:</b> Einstellungen → Alle Einstellungen anzeigen → Allgemein → Signatur → Neu erstellen → einfügen mit <code>Strg/Cmd + V</code>.</li>
+      <li><b>Outlook (Web):</b> Einstellungen → E-Mail → Verfassen und antworten → Signatur → einfügen.</li>
+      <li><b>Outlook (Desktop):</b> Datei → Optionen → E-Mail → Signaturen → Neu → einfügen. Falls die Farben verloren gehen, stattdessen <code>werkanio-signatur.html</code> im Browser öffnen, dort markieren und kopieren.</li>
+      <li><b>Apple Mail:</b> Einstellungen → Signaturen → neue Signatur anlegen, <b>„Standardschrift immer verwenden"</b> deaktivieren, dann einfügen.</li>
+    </ol>
+  </section>
+
+  <section>
+    <h2>Vor dem ersten Versand</h2>
+    <p class="note">Alle <code>[Platzhalter]</code> ersetzen — Name, Position, Telefonnummer und den Rechtsblock. Für geschäftliche E-Mails sind Firma, Anschrift, Vertretungsberechtigte und Registerdaten in Deutschland Pflicht (§&nbsp;5 TMG, §&nbsp;37a HGB bzw. §&nbsp;35a GmbHG). Bei einem Einzelunternehmen ohne Handelsregistereintrag entfallen Registergericht und HRB-Nummer.</p>
+  </section>
+
+</div>
+<script>
+  document.querySelectorAll('button[data-copy]').forEach(function(btn){
+    btn.addEventListener('click', function(){
+      var node = document.getElementById(btn.dataset.copy);
+      var label = btn.textContent;
+      var done = function(ok){
+        btn.textContent = ok ? 'Kopiert ✓' : 'Bitte manuell markieren';
+        setTimeout(function(){ btn.textContent = label; }, 2200);
+      };
+      try {
+        var range = document.createRange();
+        range.selectNodeContents(node);
+        var sel = window.getSelection();
+        sel.removeAllRanges();
+        sel.addRange(range);
+        done(document.execCommand('copy'));
+        sel.removeAllRanges();
+      } catch (e) { done(false); }
+    });
+  });
+</script>
+</body>
+</html>
