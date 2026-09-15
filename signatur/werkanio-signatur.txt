@@ -1,13 +1,18 @@
-Werkanio E-Mail-Signatur — Nur-Text-Variante
-(für Clients ohne HTML, Mailinglisten, Ticketsysteme)
+Werkanio E-Mail-Signatur — Textfassung
+(für Felder, die keine Formatierung speichern: "Mobile Signatur" in der
+IONOS-App, Ticketsysteme, Mailinglisten)
 
---
-Aymen Abid | WERKANIO
-Inhaber · KI-Assistent für Kfz-Werkstätten
+Jede Angabe steht auf einer eigenen Zeile, damit auf schmalen Displays
+nichts mitten in der Zeile umbricht.
 
-info@werkanio.de · +49 176 21756323
+Aymen Abid — Inhaber
+WERKANIO · KI-Assistent für Kfz-Werkstätten
+
+info@werkanio.de
++49 176 21756323
 werkanio.de
 
-Kein Anruf geht verloren. Dein KI-Assistent arbeitet 24/7.
+Kein Anruf geht verloren. Der KI-Assistent arbeitet 24/7.
 
-Aymen Abid · Saalbaustraße 27 · 64283 Darmstadt · USt-IdNr.: DE370567514
+Aymen Abid · Saalbaustraße 27 · 64283 Darmstadt
+USt-IdNr.: DE370567514
