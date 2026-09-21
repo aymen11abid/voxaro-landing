@@ -50,34 +50,53 @@
     })();
   </script>
 
-  <script src="https://cdn.tailwindcss.com"></script>
-  <script>
-    tailwind.config = {
-      darkMode: 'class',
-      theme: {
-        extend: {
-          colors: {
-            brand: '#FF6B00',
-          },
-          fontFamily: {
-            sans: ['-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'sans-serif'],
-          },
-        },
-      },
-    }
-  </script>
-  <style>
-    body { background: #ffffff; }
-    html.dark body { background: #09090b; }
-    @keyframes pulse-slow { 0%,100%{opacity:1} 50%{opacity:.6} }
-    .pulse-slow { animation: pulse-slow 2.5s ease-in-out infinite; }
+  <!-- Tailwind wird lokal gebaut (npm run build:css) und selbst ausgeliefert.
+       Kein Drittanbieter-CDN: es werden keine Besucher-IPs an Dritte uebertragen. -->
+  <link rel="stylesheet" href="assets/tailwind.css" />
 
-    /* Umschalter: im hellen Modus der Mond, im dunklen die Sonne */
-    .icon-sun { display: none; }
-    .icon-moon { display: block; }
-    html.dark .icon-sun { display: block; }
-    html.dark .icon-moon { display: none; }
-  </style>
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg" />
+  <link rel="apple-touch-icon" href="assets/apple-touch-icon.png" />
+
+  <!-- Teilen in WhatsApp, LinkedIn, Instagram & Co.
+       ACHTUNG: Falls die Seite nicht unter werkanio.de laeuft, hier die Domain anpassen. -->
+  <link rel="canonical" href="https://werkanio.de/" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Werkanio" />
+  <meta property="og:locale" content="de_DE" />
+  <meta property="og:url" content="https://werkanio.de/" />
+  <meta property="og:title" content="Werkanio — KI-Assistent für Werkstatt und Autohandel" />
+  <meta property="og:description" content="Kein Anruf geht verloren. Sarah nimmt Anrufe rund um die Uhr entgegen und erfasst Auftrag oder Fahrzeuganfrage automatisch." />
+  <meta property="og:image" content="https://werkanio.de/assets/og-image.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content="Werkanio — KI-Assistent für Kfz-Werkstätten und Autohäuser" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Werkanio — KI-Assistent für Werkstatt und Autohandel" />
+  <meta name="twitter:description" content="Kein Anruf geht verloren. Sarah nimmt Anrufe rund um die Uhr entgegen und erfasst Auftrag oder Fahrzeuganfrage automatisch." />
+  <meta name="twitter:image" content="https://werkanio.de/assets/og-image.png" />
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "Werkanio",
+    "applicationCategory": "BusinessApplication",
+    "operatingSystem": "Web",
+    "inLanguage": "de",
+    "description": "KI-Telefonassistent und Betriebssoftware für Kfz-Werkstätten und Autohäuser: Anrufe werden rund um die Uhr entgegengenommen und als Auftrag oder Fahrzeuganfrage erfasst.",
+    "url": "https://werkanio.de/",
+    "areaServed": "DE",
+    "offers": [
+      { "@type": "Offer", "name": "Starter", "price": "99", "priceCurrency": "EUR" },
+      { "@type": "Offer", "name": "Pro", "price": "199", "priceCurrency": "EUR" }
+    ],
+    "provider": {
+      "@type": "Organization",
+      "name": "Werkanio",
+      "email": "info@werkanio.de",
+      "url": "https://werkanio.de/"
+    }
+  }
+  </script>
 </head>
 <body class="text-zinc-900 dark:text-zinc-100 font-sans antialiased">
 
@@ -522,8 +541,8 @@
       </div>
       <p class="text-xs text-zinc-500 dark:text-zinc-600">© 2026 Werkanio. Alle Rechte vorbehalten.</p>
       <div class="flex gap-4 text-xs text-zinc-500 dark:text-zinc-600">
-        <a href="#" class="hover:text-zinc-700 dark:hover:text-zinc-400 transition-colors">Impressum</a>
-        <a href="#" class="hover:text-zinc-700 dark:hover:text-zinc-400 transition-colors">Datenschutz</a>
+        <a href="impressum.html" class="hover:text-zinc-700 dark:hover:text-zinc-400 transition-colors">Impressum</a>
+        <a href="datenschutz.html" class="hover:text-zinc-700 dark:hover:text-zinc-400 transition-colors">Datenschutz</a>
       </div>
     </div>
   </footer>
