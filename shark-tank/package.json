@@ -1,0 +1,16 @@
+{
+  "name": "shark-tank",
+  "version": "1.0.0",
+  "description": "Shark Tank: vier KI-Agenten prüfen das Projekt",
+  "main": "shark-tank.mjs",
+  "scripts": {
+    "start": "node shark-tank.mjs"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@anthropic-ai/sdk": "^0.128.0"
+  },
+  "type": "module"
+}
