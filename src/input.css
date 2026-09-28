@@ -6,6 +6,16 @@
 body { background: #ffffff; }
 html.dark body { background: #09090b; }
 
+/* Weiches Scrollen zu Abschnitten — nicht bei reduzierter Bewegung */
+html { scroll-behavior: smooth; }
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after { transition-duration: 0.01ms !important; animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; }
+}
+
+/* Sichtbarer Tastatur-Fokus auf allen Links und Buttons */
+a:focus-visible, button:focus-visible { outline: 2px solid #FF6B00; outline-offset: 2px; }
+
 @keyframes pulse-slow { 0%,100%{opacity:1} 50%{opacity:.6} }
 .pulse-slow { animation: pulse-slow 2.5s ease-in-out infinite; }
 
