@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="de" class="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Impressum — Werkanio</title>
+  <meta name="description" content="Impressum und Anbieterkennzeichnung von Werkanio." />
+  <meta name="robots" content="index, follow" />
+  <meta id="theme-color-meta" name="theme-color" content="#09090b" />
+
+  <!-- Theme moeglichst frueh setzen, damit es beim Laden nicht kurz aufblitzt -->
+  <script>
+    window.WerkanioTheme = (function () {
+      var KEY = 'werkanio-theme';
+      var root = document.documentElement;
+      var media = window.matchMedia('(prefers-color-scheme: dark)');
+
+      function stored() {
+        try { return localStorage.getItem(KEY); } catch (e) { return null; }
+      }
+
+      function mode() {
+        var m = stored();
+        if (m === 'light' || m === 'dark') return m;
+        if (m === 'system') return media.matches ? 'dark' : 'light';
+        return 'dark';
+      }
+
+      function apply() {
+        var dark = mode() === 'dark';
+        root.classList.toggle('dark', dark);
+        root.style.colorScheme = dark ? 'dark' : 'light';
+        var meta = document.getElementById('theme-color-meta');
+        if (meta) meta.setAttribute('content', dark ? '#09090b' : '#ffffff');
+      }
+
+      function set(m) {
+        try { localStorage.setItem(KEY, m); } catch (e) {}
+        apply();
+        document.dispatchEvent(new CustomEvent('werkanio:themechange', { detail: { mode: m } }));
+      }
+
+      function toggle() { set(mode() === 'dark' ? 'light' : 'dark'); }
+
+      apply();
+      return { get: mode, set: set, toggle: toggle, apply: apply };
+    })();
+  </script>
+
+  <link rel="stylesheet" href="assets/tailwind.css" />
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg" />
+  <link rel="apple-touch-icon" href="assets/apple-touch-icon.png" />
+</head>
+<body class="text-zinc-900 dark:text-zinc-100 font-sans antialiased">
+
+  <!-- Navbar -->
+  <nav class="sticky top-0 z-20 bg-white/90 dark:bg-zinc-900/90 backdrop-blur border-b border-zinc-200 dark:border-zinc-800">
+    <div class="max-w-3xl mx-auto px-4 h-14 flex items-center justify-between">
+      <a href="index.html" class="flex items-center gap-2">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
+          <path d="M13 2L4.5 13.5H11L9 22L19.5 10H13L13 2Z" fill="#FF6B00"/>
+        </svg>
+        <span class="text-lg font-black tracking-wider leading-none">
+          <span class="text-brand-ink dark:text-brand">WERK</span><span class="text-zinc-900 dark:text-white">ANIO</span>
+        </span>
+      </a>
+      <div class="flex items-center gap-2 sm:gap-4">
+        <a href="index.html" class="text-sm font-medium text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-100 transition-colors">Zur Startseite</a>
+        <button id="theme-toggle" type="button"
+                class="inline-flex items-center justify-center w-9 h-9 rounded-lg border border-zinc-300 dark:border-zinc-700 text-zinc-700 dark:text-zinc-300 hover:text-orange-600 dark:hover:text-orange-400 hover:border-orange-500/60 dark:hover:border-orange-400/60 transition-colors">
+          <svg class="icon-sun" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/>
+          </svg>
+          <svg class="icon-moon" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+          </svg>
+          <span class="sr-only">Erscheinungsbild umschalten</span>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <main class="max-w-3xl mx-auto px-4 py-16">
+    <h1 class="text-3xl sm:text-4xl font-black tracking-tight mb-3">Impressum</h1>
+    <p class="text-sm text-zinc-600 dark:text-zinc-400 mb-10">Angaben gemäß § 5 Digitale-Dienste-Gesetz (DDG)</p>
+
+    <!-- ===================================================================
+         BITTE VOR DER VEROEFFENTLICHUNG AUSFUELLEN.
+         Alle mit PLATZHALTER markierten Stellen ersetzen und danach
+         den orangenen Hinweiskasten unten loeschen.
+         =================================================================== -->
+    <div class="mb-12 rounded-2xl border border-orange-500/40 bg-orange-500/10 p-5">
+      <p class="text-sm font-bold text-orange-700 dark:text-orange-300 mb-1">Diese Seite ist noch nicht fertig.</p>
+      <p class="text-sm text-zinc-700 dark:text-zinc-300 leading-relaxed">
+        Alle mit <b>PLATZHALTER</b> markierten Angaben müssen durch die echten Daten ersetzt werden.
+        Anschließend diesen Hinweis aus der Datei entfernen. Der Text ist eine Vorlage und ersetzt keine Rechtsberatung.
+      </p>
+    </div>
+
+    <h2 class="text-xl font-black mt-10 mb-3">Angaben gemäß § 5 DDG</h2>
+    <p class="text-sm text-zinc-700 dark:text-zinc-400 leading-relaxed mb-4"><b class="text-brand-ink dark:text-orange-400">PLATZHALTER: Firmenname inkl. Rechtsform, z. B. „Werkanio GmbH" oder „Aymen Abid — Einzelunternehmen"</b><br /><b class="text-brand-ink dark:text-orange-400">PLATZHALTER: Straße und Hausnummer (kein Postfach)</b><br /><b class="text-brand-ink dark:text-orange-400">PLATZHALTER: PLZ und Ort</b></p>
+
+    <h2 class="text-xl font-black mt-10 mb-3">Kontakt</h2>
+    <p class="text-sm text-zinc-700 dark:text-zinc-400 leading-relaxed mb-4">Telefon: <b class="text-brand-ink dark:text-orange-400">PLATZHALTER: Telefonnummer</b><br />E-Mail: <a class="text-brand-ink dark:text-orange-400 underline underline-offset-2" href="mailto:info@werkanio.de">info@werkanio.de</a></p>
+
+    <h2 class="text-xl font-black mt-10 mb-3">Vertreten durch</h2>
+    <p class="text-sm text-zinc-700 dark:text-zinc-400 leading-relaxed mb-4"><b class="text-brand-ink dark:text-orange-400">PLATZHALTER: Name der vertretungsberechtigten Person</b><br /><span class="text-zinc-500 dark:text-zinc-400">Nur erforderlich bei Gesellschaften (GmbH, UG, GbR). Bei einem Einzelunternehmen entfällt dieser Abschnitt.</span></p>
+
+    <h2 class="text-xl font-black mt-10 mb-3">Registereintrag</h2>
+    <p class="text-sm text-zinc-700 dark:text-zinc-400 leading-relaxed mb-4">Registergericht: <b class="text-brand-ink dark:text-orange-400">PLATZHALTER: z. B. Amtsgericht Darmstadt</b><br />Registernummer: <b class="text-brand-ink dark:text-orange-400">PLATZHALTER: z. B. HRB 12345</b><br /><span class="text-zinc-500 dark:text-zinc-400">Nur erforderlich, wenn eine Eintragung im Handels-, Vereins- oder Genossenschaftsregister besteht. Sonst diesen Abschnitt löschen.</span></p>
+
+    <h2 class="text-xl font-black mt-10 mb-3">Umsatzsteuer-Identifikationsnummer</h2>
+    <p class="text-sm text-zinc-700 dark:text-zinc-400 leading-relaxed mb-4">Umsatzsteuer-Identifikationsnummer gemäß § 27 a Umsatzsteuergesetz: <b class="text-brand-ink dark:text-orange-400">PLATZHALTER: DE…</b><br /><span class="text-zinc-500 dark:text-zinc-400">Nur erforderlich, wenn eine USt-IdNr. vorhanden ist. Kleinunternehmer nach § 19 UStG löschen diesen Abschnitt.</span></p>
+
+    <h2 class="text-xl font-black mt-10 mb-3">Verantwortlich für den Inhalt nach § 18 Abs. 2 MStV</h2>
+    <p class="text-sm text-zinc-700 dark:text-zinc-400 leading-relaxed mb-4"><b class="text-brand-ink dark:text-orange-400">PLATZHALTER: Name</b><br /><b class="text-brand-ink dark:text-orange-400">PLATZHALTER: Anschrift — identisch mit der Anschrift oben</b></p>
+
+    <h2 class="text-xl font-black mt-10 mb-3">Verbraucherstreitbeilegung</h2>
+    <p class="text-sm text-zinc-700 dark:text-zinc-400 leading-relaxed mb-4">Wir sind nicht bereit und nicht verpflichtet, an Streitbeilegungsverfahren vor einer Verbraucherschlichtungsstelle teilzunehmen.</p>
+
+    <h2 class="text-xl font-black mt-10 mb-3">Haftung und Urheberrecht</h2>
+    <p class="text-sm text-zinc-700 dark:text-zinc-400 leading-relaxed mb-4">Die Inhalte dieser Seiten wurden mit Sorgfalt erstellt. Für die Richtigkeit, Vollständigkeit und Aktualität der Inhalte können wir jedoch keine Gewähr übernehmen. Als Diensteanbieter sind wir gemäß § 7 Abs. 1 DDG für eigene Inhalte auf diesen Seiten nach den allgemeinen Gesetzen verantwortlich. Nach §§ 8 bis 10 DDG sind wir als Diensteanbieter jedoch nicht verpflichtet, übermittelte oder gespeicherte fremde Informationen zu überwachen oder nach Umständen zu forschen, die auf eine rechtswidrige Tätigkeit hinweisen.</p>
+    <p class="text-sm text-zinc-700 dark:text-zinc-400 leading-relaxed mb-4">Unser Angebot enthält Links zu externen Websites Dritter, auf deren Inhalte wir keinen Einfluss haben. Deshalb können wir für diese fremden Inhalte auch keine Gewähr übernehmen. Für die Inhalte der verlinkten Seiten ist stets der jeweilige Anbieter oder Betreiber der Seiten verantwortlich. Bei Bekanntwerden von Rechtsverletzungen werden wir derartige Links umgehend entfernen.</p>
+    <p class="text-sm text-zinc-700 dark:text-zinc-400 leading-relaxed mb-4">Die durch die Seitenbetreiber erstellten Inhalte und Werke auf diesen Seiten unterliegen dem deutschen Urheberrecht. Beiträge Dritter sind als solche gekennzeichnet. Downloads und Kopien dieser Seite sind nur für den privaten, nicht kommerziellen Gebrauch gestattet.</p>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="border-t border-zinc-200 dark:border-zinc-800 py-8">
+    <div class="max-w-3xl mx-auto px-4 flex flex-col sm:flex-row items-center justify-between gap-4">
+      <a href="index.html" class="flex items-center gap-2">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+          <path d="M13 2L4.5 13.5H11L9 22L19.5 10H13L13 2Z" fill="#FF6B00"/>
+        </svg>
+        <span class="text-base font-black tracking-wider">
+          <span class="text-brand-ink dark:text-brand">WERK</span><span class="text-zinc-900 dark:text-white">ANIO</span>
+        </span>
+      </a>
+      <p class="text-xs text-zinc-600 dark:text-zinc-400">© 2026 Werkanio. Alle Rechte vorbehalten.</p>
+      <div class="flex gap-4 text-xs text-zinc-600 dark:text-zinc-400">
+        <a href="impressum.html" class="hover:text-zinc-700 dark:hover:text-zinc-400 transition-colors">Impressum</a>
+        <a href="datenschutz.html" class="hover:text-zinc-700 dark:hover:text-zinc-400 transition-colors">Datenschutz</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    (function () {
+      var btn = document.getElementById('theme-toggle');
+      function label() {
+        var toLight = window.WerkanioTheme.get() === 'dark';
+        var text = toLight ? 'Zum hellen Modus wechseln' : 'Zum dunklen Modus wechseln';
+        btn.setAttribute('aria-label', text);
+        btn.setAttribute('title', text);
+      }
+      btn.addEventListener('click', function () { window.WerkanioTheme.toggle(); });
+      document.addEventListener('werkanio:themechange', label);
+      label();
+    })();
+  </script>
+</body>
+</html>

@@ -1,0 +1,21 @@
+{
+  "name": "werkanio-landing",
+  "version": "1.0.0",
+  "description": "Landing Page fuer Werkanio",
+  "scripts": {
+    "build:css": "tailwindcss -c tailwind.config.js -i src/input.css -o assets/tailwind.css --minify",
+    "watch:css": "tailwindcss -c tailwind.config.js -i src/input.css -o assets/tailwind.css --watch"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/aymen11abid/voxaro-landing.git"
+  },
+  "bugs": {
+    "url": "https://github.com/aymen11abid/voxaro-landing/issues"
+  },
+  "homepage": "https://github.com/aymen11abid/voxaro-landing#readme",
+  "devDependencies": {
+    "tailwindcss": "^3.4.19"
+  },
+  "private": true
+}
