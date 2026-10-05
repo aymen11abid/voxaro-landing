@@ -1,4 +1,8 @@
 {
+  "redirects": [
+    { "source": "/datenschutz", "destination": "https://werkanio.de/datenschutz", "permanent": false },
+    { "source": "/(.*)", "destination": "https://werkanio.de/", "permanent": false }
+  ],
   "rewrites": [
     { "source": "/impressum", "destination": "/impressum.html" },
     { "source": "/(.*)", "destination": "/index.html" }
